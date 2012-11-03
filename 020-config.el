@@ -3,7 +3,9 @@
 (add-hook 'text-mode-hook 'turn-off-flyspell t)
 (add-hook 'prog-mode-hook 'turn-off-flyspell t)
 (add-hook 'prog-mode-hook 'turn-off-guru-mode t)
-(remove-hook 'before-save-hook 'whitespace-cleanup nil)
+(add-hook 'prog-mode-hook
+    (lambda nil (remove-hook 'before-save-hook 'whitespace-cleanup t))
+    t)
 
 ;;Global config
 (setq-default tab-width 4)

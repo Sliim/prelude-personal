@@ -3,6 +3,7 @@
 (add-hook 'text-mode-hook 'turn-off-flyspell t)
 (add-hook 'prog-mode-hook 'turn-off-flyspell t)
 (add-hook 'prog-mode-hook 'turn-off-guru-mode t)
+(remove-hook 'before-save-hook 'whitespace-cleanup nil)
 
 ;;Global config
 (setq-default tab-width 4)
@@ -110,11 +111,6 @@
 (global-set-key (kbd "M-<left>") 'windmove-left)
 (global-set-key (kbd "M-<right>") 'windmove-right)
 (global-set-key (kbd "C-:") 'undo)
-(global-set-key (kbd "C-c d") 'ecb-goto-window-directories)
-(global-set-key (kbd "C-c e") 'ecb-goto-window-edit1)
-(global-set-key (kbd "C-c h") 'ecb-goto-window-history)
-(global-set-key (kbd "C-c s") 'ecb-goto-window-sources)
-(global-set-key (kbd "C-c m") 'ecb-goto-window-methods)
 (global-set-key (kbd "C-<next>") 'next-buffer)
 (global-set-key (kbd "C-<prior>") 'previous-buffer)
 (global-set-key (kbd "C-,") 'ecb-show-ecb-windows)

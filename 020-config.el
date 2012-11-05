@@ -77,6 +77,7 @@
 ;; PHP
 (require 'php+-mode)
 (require 'php-mode)
+(require 'php-extras)
 (require 'flymake-php)
 (php+-mode-setup)
 
@@ -95,6 +96,7 @@
     (auto-complete-mode t)))
 (add-hook 'php-mode-hook 'my-php-mode-hook)
 (add-hook 'php-mode-hook 'flymake-php-load)
+(add-hook 'php-mode-hook 'turn-on-eldoc-mode)
 (add-hook 'php-mode-hook
           (lambda ()
             (c-set-offset 'case-label '+)))

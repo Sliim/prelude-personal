@@ -8,7 +8,7 @@
 
 (defvar prelude-personal-packages
   '(ecb php-mode php+-mode auto-complete emms flymake-php
-        geben)
+        geben php-extras)
   "A list of additional packages to ensure are installed at launch.")
 
 (defun prelude-personal-packages-installed-p ()

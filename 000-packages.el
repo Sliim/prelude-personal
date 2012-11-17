@@ -7,7 +7,7 @@
 (package-initialize)
 
 (defvar prelude-personal-packages
-  '(ecb php-mode php+-mode auto-complete emms flymake-php
+  '(ecb php-mode php+-mode auto-complete emms flymake-php prelude-js prelude-css prelude-xml prelude-ruby multi-term minimap
         geben php-extras)
   "A list of additional packages to ensure are installed at launch.")
 

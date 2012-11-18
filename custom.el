@@ -27,6 +27,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :stipple nil :background "#3f3f3f" :foreground "#dcdccc" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 90 :width normal :foundry "unknown" :family "DejaVu Sans Mono"))))
  '(ac-candidate-face ((t (:background "gray50" :foreground "black"))))
  '(ac-candidate-mouse-face ((t (:background "gray50" :foreground "black"))))
  '(ac-etags-candidate-face ((t (:background "grey50" :foreground "black"))) t)

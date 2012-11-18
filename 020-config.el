@@ -100,6 +100,7 @@
 (add-hook 'php-mode-hook
           (lambda ()
             (c-set-offset 'case-label '+)))
+(define-key php-mode-map (kbd "RET") 'newline-and-indent)
 
 ;; Emms
 (require 'emms-setup)

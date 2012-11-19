@@ -1,13 +1,15 @@
 ;; Install additional packages in prelude
 ;; This file is part of prelude-packages.el customized
 
-;; Add marmalade repo for following packages: geben
+;; Add marmalade repo for following packages: geben, php-extras
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (package-initialize)
 
 (defvar prelude-personal-packages
-  '(ecb php-mode php+-mode auto-complete emms flymake-php prelude-js prelude-css prelude-xml prelude-ruby multi-term minimap
+  '(ecb php-mode php+-mode auto-complete emms flymake-php
+        prelude-js prelude-css prelude-xml prelude-ruby multi-term
+        minimap markdown-mode magit
         geben php-extras)
   "A list of additional packages to ensure are installed at launch.")
 

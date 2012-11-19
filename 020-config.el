@@ -111,6 +111,10 @@
 ;; Geben
 (require 'geben)
 
+;; Multi-term
+(require 'multi-term)
+(setq multi-term-program "/bin/zsh")
+
 ;; Grep
 (grep-compute-defaults)
 (add-to-list 'grep-find-ignored-directories ".emacs")

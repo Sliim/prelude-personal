@@ -6,7 +6,7 @@
  '(delete-trailing-lines nil)
  '(ecb-history-make-buckets (quote never))
  '(ecb-kill-buffer-clears-history (quote auto))
- '(ecb-layout-name "sliim-left-layout")
+ '(ecb-layout-name "sliim-layout")
  '(ecb-layout-window-sizes (quote (("sliim-left-layout" (ecb-directories-buffer-name 0.20725388601036268 . 0.7454545454545455) (ecb-history-buffer-name 0.20725388601036268 . 0.23636363636363636)) ("sliim-layout" (ecb-directories-buffer-name 0.19047619047619047 . 0.9811320754716981) (ecb-methods-buffer-name 0.21164021164021163 . 0.6226415094339622)))))
  '(ecb-options-version "2.40")
  '(ecb-primary-secondary-mouse-buttons (quote mouse-1--mouse-2))
@@ -20,14 +20,14 @@
  '(phpcs-standard "Sliim")
  '(phpunit-shell-command "/usr/bin/phpunit")
  '(scroll-bar-mode nil)
- '(scroll-conservatively 10000)
- '(scroll-step 1))
+ '(scroll-conservatively 10000))
+'(scroll-step 1)
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "#3f3f3f" :foreground "#dcdccc" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 90 :width normal :foundry "unknown" :family "DejaVu Sans Mono"))))
+ '(default ((t (:inherit nil :stipple nil :background "#3f3f3f" :foreground "#dcdccc" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 85 :width normal :foundry "unknown" :family "DejaVu Sans Mono"))))
  '(ac-candidate-face ((t (:background "gray50" :foreground "black"))))
  '(ac-candidate-mouse-face ((t (:background "gray50" :foreground "black"))))
  '(ac-etags-candidate-face ((t (:background "grey50" :foreground "black"))) t)

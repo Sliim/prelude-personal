@@ -113,7 +113,7 @@
 
 ;; Multi-term
 (require 'multi-term)
-(setq multi-term-program "/bin/zsh")
+(setq multi-term-program "/bin/bash")
 
 ;; Grep
 (grep-compute-defaults)

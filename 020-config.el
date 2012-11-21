@@ -115,6 +115,9 @@
 (require 'multi-term)
 (setq multi-term-program "/bin/bash")
 
+;; Helm
+(require 'helm-git)
+
 ;; Grep
 (grep-compute-defaults)
 (add-to-list 'grep-find-ignored-directories ".emacs")

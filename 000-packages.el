@@ -8,7 +8,7 @@
 
 (defvar prelude-personal-packages
   '(ecb php-mode php+-mode auto-complete emms flymake-php
-        prelude-js prelude-css prelude-xml prelude-ruby multi-term
+        prelude-js prelude-css prelude-xml prelude-ruby
         minimap markdown-mode magit helm-git
         geben php-extras)
   "A list of additional packages to ensure are installed at launch.")

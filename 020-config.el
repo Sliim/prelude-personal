@@ -115,10 +115,6 @@
 ;; Geben
 (require 'geben)
 
-;; Multi-term
-(require 'multi-term)
-(setq multi-term-program "/bin/bash")
-
 ;; Helm
 (require 'helm-git)
 

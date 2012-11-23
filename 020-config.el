@@ -9,6 +9,9 @@
 
 ;; Projectile config
 (set-projectile-tags-command)
+(add-to-list 'projectile-globally-ignored-directories ".emacs")
+(add-to-list 'projectile-globally-ignored-directories "logs")
+(prin1 projectile-globally-ignored-directories)
 
 ;;Global config
 (setq-default tab-width 4)
@@ -117,16 +120,6 @@
 
 ;; Helm
 (require 'helm-git)
-
-;; Grep
-(grep-compute-defaults)
-(add-to-list 'grep-find-ignored-directories ".emacs")
-(add-to-list 'grep-find-ignored-directories "logs")
-(add-to-list 'grep-files-aliases (cons "php" "*.php *.phtml"))
-(add-to-list 'grep-files-aliases (cons "js" "*.js"))
-(setq grep-find-template "find -L . <X> -type f <F> -print0 | \"xargs\" -0 -e grep <C> -nH -e <R>")
-(defun grep-compute-defaults ()
-"Hack to keep my changes...")
 
 ;;Personal Keybindings
 (global-set-key (kbd "M-<up>") 'windmove-up)

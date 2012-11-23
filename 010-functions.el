@@ -28,7 +28,6 @@
       (when (file-exists-p (concat project-emacs-dir "project-config.el"))
         (message "Loading project's configuration..")
         (load-file (concat project-emacs-dir "project-config.el"))))
-    (setq grep-find-command (concat "find -L " (php-project-directory project) " -type f -print0 | xargs -0 -e grep -nH -e "))
     (setq current-project project)
     (setq tags-completion-table nil)
     (set-projectile-tags-command)

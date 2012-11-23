@@ -142,3 +142,5 @@
 (global-set-key (kbd "C-<prior>") 'previous-buffer)
 (global-set-key (kbd "C-,") 'ecb-show-ecb-windows)
 (global-set-key (kbd "C-;") 'ecb-hide-ecb-windows)
+(define-key prelude-mode-map (kbd "C-c g") 'helm-git-find-files)
+(define-key prelude-mode-map (kbd "C-c C-g") 'prelude-google)

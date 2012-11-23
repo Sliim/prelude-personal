@@ -1,9 +1,9 @@
+;;;;;;;; Project Management functions ;;;;;;;;
 (defvar current-project nil)
 
-;;; Function that open project, load snippets, visit tags table and read project desktop if exists
 (defun project-open ()
+  "Function that open project, load snippets, visit tags table and read project desktop if exists"
   (interactive)
-  "Function that open project, load snippets and read project desktop"
   (let ((project (php-project-ask-for-project "Project: ")))
     (project-close-current)
     (php-project-dired-directory project)
@@ -31,63 +31,44 @@
     (setq grep-find-command (concat "find -L " (php-project-directory project) " -type f -print0 | xargs -0 -e grep -nH -e "))
     (setq current-project project)
     (setq tags-completion-table nil)
+    (set-projectile-tags-command)
     (message (concat "Project " (php-project-nickname current-project) " opened."))))
 
-;;; Function that save current desktop in .emacs's project dir
 (defun project-save-desktop ()
-  (interactive)
   "Function that save current desktop in .emacs's project dir"
+  (interactive)
   (if current-project
       (when (file-exists-p (concat (php-project-directory current-project) "/.emacs/"))
         (desktop-save (concat (php-project-directory current-project) ".emacs/"))
         (message "Desktop saved."))
     (message "No project opened..")))
 
-;;; Function that update project tags
-(defun project-update-tags ()
-  (interactive)
-  "Function that update project tags"
-  (if current-project
-      (when (/= (length (php-project-tags-file current-project)) 0)
-        (let ((command (concat "ctags-exuberant -R -e \
-          -o " (php-project-tags-file current-project) " \
-          --languages=PHP \
-          --exclude=\"\.git\" \
-          --totals=yes \
-          --tag-relative=yes \
-          --PHP-kinds=-v \
-          --regex-PHP='/abstract class ([^ ]*)/\1/c/' \
-          --regex-PHP='/trait ([^ ]*)/\1/c/' \
-          --regex-PHP='/interface ([^ ]*)/\1/c/' \
-          --regex-PHP='/(public |final |static |abstract |protected |private )+function ([^ (]*)/\2/f/' \
-	      --regex-PHP='/const ([^ ]*)/\1/d/' " (php-project-directory current-project))))
-          (shell-command command))
-        (visit-tags-table (php-project-tags-file current-project))
-        (setq tags-completion-table nil)
-        (message "Tags table updated."))
-    (message "No project opened..")))
-
-;;; Show the current project
 (defun project-show-current ()
-  (interactive)
   "Show the current project"
+  (interactive)
   (if current-project
       (message (php-project-nickname current-project))
     (message "none")))
 
-;;; Close current project
 (defun project-close-current ()
-  (interactive)
   "Close current project"
+  (interactive)
   (when current-project
     (when (y-or-n-p (concat "Save desktop for current project " (php-project-nickname current-project) " "))
       (project-save-desktop))
     (desktop-clear)
     (project-desktop-remove-lock-file)
     (message (concat "Project " (php-project-nickname current-project) " closed."))
-    (setq current-project nil)))
+    (setq current-project nil)
+    (set-projectile-tags-command)))
 
-;;; Remove desktop lock file
+(defun project-clear-desktop ()
+  "Overload desktop-clear to open current project directory when clearing desktop"
+  (interactive)
+  (desktop-clear)
+  (when current-project
+    (php-project-dired-directory current-project)))
+
 (defun project-desktop-remove-lock-file ()
   "Remove desktop lock file"
   (when current-project
@@ -95,19 +76,8 @@
     (when (file-exists-p project-desktop-lock-file)
       (shell-command (concat "rm " project-desktop-lock-file))
       (message "Desktop lock file removed."))))
+;;;;;;;; End of Project Management functions ;;;;;;;;
 
-;;; Overload desktop-clear to open current project directory when clearing desktop
-(defun project-clear-desktop ()
-  (interactive)
-  "Overload desktop-clear to open current project directory when clearing desktop"
-  (desktop-clear)
-  (when current-project
-    (php-project-dired-directory current-project)))
-
-;;; Hook that close current project when exit emacs
-(add-hook 'kill-emacs-hook (lambda () (project-close-current)))
-
-;; Untabify the entire buffer
 (defun untabify-buffer ()
   "Untabify the entire buffer."
   (interactive)
@@ -120,3 +90,21 @@
   (ecb-update-directories-buffer)
   (ecb-clear-history)
   (ecb-rebuild-methods-buffer))
+
+(defun set-projectile-tags-command ()
+  "Set projectile-tags-command custom variable"
+  (setq projectile-tags-command "ctags-exuberant -Re \
+    --languages=PHP \
+    --exclude=\"\.git\" \
+    --totals=yes \
+    --tag-relative=yes \
+    --PHP-kinds=-v \
+    --regex-PHP='/abstract class ([^ ]*)/\1/c/' \
+    --regex-PHP='/trait ([^ ]*)/\1/c/' \
+    --regex-PHP='/interface ([^ ]*)/\1/c/' \
+    --regex-PHP='/(public |final |static |abstract |protected |private )+function ([^ (]*)/\2/f/' \
+    --regex-PHP='/const ([^ ]*)/\1/d/'")
+
+  (when current-project
+    (when (/= (length (php-project-tags-file current-project)) 0)
+      (setq projectile-tags-command (concat projectile-tags-command " -o " (php-project-tags-file current-project))))))

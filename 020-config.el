@@ -7,12 +7,16 @@
     (lambda nil (remove-hook 'before-save-hook 'whitespace-cleanup t))
     t)
 
+;; Projectile config
+(set-projectile-tags-command)
+
 ;;Global config
 (setq-default tab-width 4)
 (setq confirm-kill-emacs 'yes-or-no-p)
 (setq require-final-newline t)
 (setq c-basic-offset 4)
 (add-hook 'write-file-hooks 'delete-trailing-whitespace)
+(add-hook 'kill-emacs-hook (lambda () (project-close-current)))
 
 ;;Small fix for selection with shift+up
 ; More infos: http://lists.gnu.org/archive/html/help-gnu-emacs/2011-05/msg00174.html

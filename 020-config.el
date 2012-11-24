@@ -11,7 +11,6 @@
 (set-projectile-tags-command)
 (add-to-list 'projectile-globally-ignored-directories ".emacs")
 (add-to-list 'projectile-globally-ignored-directories "logs")
-(prin1 projectile-globally-ignored-directories)
 
 ;;Global config
 (setq-default tab-width 4)

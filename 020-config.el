@@ -1,3 +1,6 @@
+;; Add vendor/ dir to load-path
+(add-to-list 'load-path "~/.emacs.d/prelude/personal/elisp")
+
 ;;Prelude config
 (add-hook 'prog-mode-hook 'whitespace-turn-off t)
 (add-hook 'text-mode-hook 'turn-off-flyspell t)
@@ -8,9 +11,12 @@
     t)
 
 ;; Projectile config
-(set-projectile-tags-command)
 (add-to-list 'projectile-globally-ignored-directories ".emacs")
 (add-to-list 'projectile-globally-ignored-directories "logs")
+
+;; Projecxt config
+(require 'projext)
+(projext-set-projectile-tags-command)
 
 ;;Global config
 (setq-default tab-width 4)
@@ -18,7 +24,7 @@
 (setq require-final-newline t)
 (setq c-basic-offset 4)
 (add-hook 'write-file-hooks 'delete-trailing-whitespace)
-(add-hook 'kill-emacs-hook (lambda () (project-close-current)))
+(add-hook 'kill-emacs-hook (lambda () (projext-close-current-project)))
 
 ;;Small fix for selection with shift+up
 ; More infos: http://lists.gnu.org/archive/html/help-gnu-emacs/2011-05/msg00174.html

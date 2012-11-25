@@ -1,5 +1,6 @@
 ;; Add vendor/ dir to load-path
 (add-to-list 'load-path "~/.emacs.d/prelude/personal/elisp")
+(add-to-list 'load-path "~/.emacs.d/prelude/personal/vendor")
 
 ;;Prelude config
 (add-hook 'prog-mode-hook 'whitespace-turn-off t)
@@ -31,18 +32,13 @@
 (if (equal "xterm" (tty-type))
     (define-key input-decode-map "\e[1;2A" [S-up]))
 
-;; Vendor path
-;; Here is copy of el packages that are not indexed by elpa repositories
-(when (file-exists-p "~/.emacs.d/vendor")
-  (add-to-list 'load-path "~/.emacs.d/vendor")
+;; Etags-select
+(require 'etags-select)
+(global-set-key (kbd "C-c C-t") 'etags-select-find-tag)
 
-  ;; Etags-select
-  (require 'etags-select)
-  (global-set-key (kbd "C-c C-t") 'etags-select-find-tag)
-
-    ;; Redo
-  (require 'redo)
-  (global-set-key (kbd "C-!") 'redo))
+;; Redo
+(require 'redo)
+(global-set-key (kbd "C-!") 'redo)
 
 ;; ECB
 (require 'ecb)

@@ -15,9 +15,10 @@
 (add-to-list 'projectile-globally-ignored-directories ".emacs")
 (add-to-list 'projectile-globally-ignored-directories "logs")
 
-;; Projecxt config
+;; Projext config
 (require 'projext)
 (projext-set-projectile-tags-command)
+(define-key projectile-mode-map (kbd "C-c p t") 'projext-regenerate-tags)
 
 ;;Global config
 (setq-default tab-width 4)

@@ -125,6 +125,16 @@
   (when projext-current-project
     (php-project-dired-directory projext-current-project)))
 
+(defun projext-regenerate-tags ()
+  "Regenerate project's tags table"
+  (interactive)
+  (projext-set-projectile-tags-command)
+  (if (and projext-current-project (/= (length (php-project-tags-file projext-current-project)) 0))
+      (progn
+        (shell-command (format projectile-tags-command (php-project-directory projext-current-project)))
+        (visit-tags-table (php-project-tags-file projext-current-project)))
+    (projectile-regenerate-tags)))
+
 (defun projext-remove-project-desktop-lock-file ()
   "Remove desktop lock file"
   (when projext-current-project

@@ -10,7 +10,7 @@
   '(ecb php-mode php+-mode auto-complete emms flymake-php
         prelude-js prelude-css prelude-xml prelude-ruby
         minimap markdown-mode magit helm-git
-        geben php-extras)
+        geben php-extras etags-select)
   "A list of additional packages to ensure are installed at launch.")
 
 (defun prelude-personal-packages-installed-p ()

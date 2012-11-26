@@ -34,7 +34,7 @@
 
 ;; Etags-select
 (require 'etags-select)
-(global-set-key (kbd "C-c C-t") 'etags-select-find-tag)
+(global-set-key (kbd "C-x t") 'etags-select-find-tag)
 
 ;; Redo
 (require 'redo)
@@ -122,6 +122,8 @@
 
 ;; Helm
 (require 'helm-git)
+(require 'helm-etags+)
+(global-set-key (kbd "C-c C-t") 'helm-etags+-select)
 
 ;;Personal Keybindings
 (global-set-key (kbd "M-<up>") 'windmove-up)

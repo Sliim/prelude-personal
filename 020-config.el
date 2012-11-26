@@ -112,6 +112,7 @@
 
 ;; Emms
 (require 'emms-setup)
+(require 'emms-streams)
 (emms-standard)
 (emms-default-players)
 (setq emms-source-file-default-directory "~/musics/")

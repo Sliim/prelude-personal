@@ -165,12 +165,12 @@
   (when projext-current-project
     (setq projext-desktop-lock-file (concat (php-project-directory projext-current-project) projext-directory ".emacs.desktop.lock"))
     (when (file-exists-p projext-desktop-lock-file)
-      (delete-file (projext-desktop-lock-file))
+      (delete-file projext-desktop-lock-file)
       (message "Desktop lock file removed."))))
 
 (defun projext-set-projectile-tags-command ()
   "Set projectile-tags-command custom variable"
-  (setq projectile-tags-command "ctags-exuberant -Re \
+  (setq base-command "ctags-exuberant -Re \
     --languages=PHP \
     --exclude=\"\.git\" \
     --totals=yes \
@@ -182,9 +182,9 @@
     --regex-PHP='/(public |final |static |abstract |protected |private )+function ([^ (]*)/\2/f/' \
     --regex-PHP='/const ([^ ]*)/\1/d/'")
 
-  (when projext-current-project
-    (when (/= (length (php-project-tags-file projext-current-project)) 0)
-      (setq projectile-tags-command (concat projectile-tags-command " -o " (php-project-tags-file projext-current-project))))))
+  (when (and projext-current-project (/= (length (php-project-tags-file projext-current-project)) 0))
+    (setq base-command (concat base-command " -o " (php-project-tags-file projext-current-project))))
+  (setq projectile-tags-command (concat base-command " %s")))
 
 (provide 'projext)
 

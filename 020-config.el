@@ -21,12 +21,12 @@
 (define-key prelude-mode-map (kbd "C-c C-g") 'prelude-google)
 
 ;; Projectile config
-(add-to-list 'projectile-globally-ignored-directories ".emacs")
+(add-to-list 'projectile-globally-ignored-directories ".project")
 (add-to-list 'projectile-globally-ignored-directories "logs")
 
 ;; Grep
 (grep-compute-defaults)
-(add-to-list 'grep-find-ignored-directories ".emacs")
+(add-to-list 'grep-find-ignored-directories ".project")
 (add-to-list 'grep-find-ignored-directories "logs")
 (add-to-list 'grep-files-aliases (cons "php" "*.php *.phtml"))
 (add-to-list 'grep-files-aliases (cons "js" "*.js"))

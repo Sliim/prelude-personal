@@ -44,7 +44,7 @@
   :group 'projectile
   :group 'php-project)
 
-(defcustom projext-directory ".emacs/"
+(defcustom projext-directory ".project/"
   "Directory where stored TAGS, desktop, snippets files"
   :group 'projext
   :type 'string)
@@ -71,7 +71,7 @@
       (visit-tags-table (php-project-tags-file project)))
     (when (file-exists-p projext-emacs-dir)
       ;; TODO use custom variable projext-directory
-      (setq desktop-path '(concat (php-project-directory project) ".emacs/"))
+      (setq desktop-path '(concat (php-project-directory project) ".project/"))
       (setq desktop-dirname projext-emacs-dir)
       (setq projext-snippets-dir (concat projext-emacs-dir "snippets/"))
 
@@ -110,7 +110,7 @@
     (projext-set-projectile-tags-command)))
 
 (defun projext-save-project-desktop ()
-  "Function that save current desktop in .emacs's project dir"
+  "Function that save current desktop in project's directory"
   (interactive)
   (if projext-current-project
       (when (file-exists-p (concat (php-project-directory projext-current-project) projext-directory))

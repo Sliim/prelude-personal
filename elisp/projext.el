@@ -128,6 +128,7 @@
 (defun projext-regenerate-tags ()
   "Regenerate project's tags table"
   (interactive)
+  (projext-clean-project-tags)
   (projext-set-projectile-tags-command)
   (if (and projext-current-project (/= (length (php-project-tags-file projext-current-project)) 0))
       (progn
@@ -140,7 +141,9 @@
   (interactive)
   (when projext-current-project
     (tags-reset-tags-tables)
-    (when (/= (length (php-project-tags-file projext-current-project)) 0)
+    (when (and
+           (/= (length (php-project-tags-file projext-current-project)) 0)
+           (file-exists-p (php-project-tags-file projext-current-project)))
       (delete-file (php-project-tags-file projext-current-project)))))
 
 (defun projext-clean-project-desktop ()

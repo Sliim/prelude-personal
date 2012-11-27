@@ -135,12 +135,37 @@
         (visit-tags-table (php-project-tags-file projext-current-project)))
     (projectile-regenerate-tags)))
 
+(defun projext-clean-project-tags ()
+  "Clear tags table and remove tags file"
+  (interactive)
+  (when projext-current-project
+    (tags-reset-tags-tables)
+    (when (/= (length (php-project-tags-file projext-current-project)) 0)
+      (delete-file (php-project-tags-file projext-current-project)))))
+
+(defun projext-clean-project-desktop ()
+  "Clear desktop and remove files"
+  (interactive)
+  (when projext-current-project
+    (setq projext-emacs-dir (concat (php-project-directory projext-current-project) projext-directory))
+    (projext-clear-project-desktop)
+    (when (file-exists-p (concat projext-emacs-dir ".emacs.desktop"))
+      (delete-file (concat projext-emacs-dir ".emacs.desktop")))
+    (when (file-exists-p (concat projext-emacs-dir ".emacs.desktop.lock"))
+      (delete-file (concat projext-emacs-dir ".emacs.desktop.lock")))))
+
+(defun projext-clean-project ()
+  "Remove project's TAGS and desktop files"
+  (interactive)
+  (projext-clean-project-desktop)
+  (projext-clean-project-tags))
+
 (defun projext-remove-project-desktop-lock-file ()
   "Remove desktop lock file"
   (when projext-current-project
     (setq projext-desktop-lock-file (concat (php-project-directory projext-current-project) projext-directory ".emacs.desktop.lock"))
     (when (file-exists-p projext-desktop-lock-file)
-      (shell-command (concat "rm " projext-desktop-lock-file))
+      (delete-file (projext-desktop-lock-file))
       (message "Desktop lock file removed."))))
 
 (defun projext-set-projectile-tags-command ()

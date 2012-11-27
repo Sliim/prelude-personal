@@ -139,12 +139,14 @@
 (defun projext-clean-project-tags ()
   "Clear tags table and remove tags file"
   (interactive)
+  (tags-reset-tags-tables)
   (when projext-current-project
-    (tags-reset-tags-tables)
     (when (and
            (/= (length (php-project-tags-file projext-current-project)) 0)
            (file-exists-p (php-project-tags-file projext-current-project)))
-      (delete-file (php-project-tags-file projext-current-project)))))
+      (delete-file (php-project-tags-file projext-current-project))))
+  (when (setq project-root (projectile-project-root))
+    (delete-file (concat project-root "TAGS"))))
 
 (defun projext-clean-project-desktop ()
   "Clear desktop and remove files"

@@ -1,3 +1,11 @@
+;;Global config
+(setq-default tab-width 4)
+(setq confirm-kill-emacs 'yes-or-no-p)
+(setq require-final-newline t)
+(setq c-basic-offset 4)
+(add-hook 'write-file-hooks 'delete-trailing-whitespace)
+(add-hook 'kill-emacs-hook (lambda () (projext-close-current-project)))
+
 ;; Add vendor/ dir to load-path
 (add-to-list 'load-path "~/.emacs.d/prelude/personal/elisp")
 (add-to-list 'load-path "~/.emacs.d/prelude/personal/vendor")
@@ -10,23 +18,23 @@
 (add-hook 'prog-mode-hook
     (lambda nil (remove-hook 'before-save-hook 'whitespace-cleanup t))
     t)
+(define-key prelude-mode-map (kbd "C-c C-g") 'prelude-google)
 
 ;; Projectile config
 (add-to-list 'projectile-globally-ignored-directories ".emacs")
 (add-to-list 'projectile-globally-ignored-directories "logs")
 
+;; Grep
+(grep-compute-defaults)
+(add-to-list 'grep-find-ignored-directories ".emacs")
+(add-to-list 'grep-find-ignored-directories "logs")
+(add-to-list 'grep-files-aliases (cons "php" "*.php *.phtml"))
+(add-to-list 'grep-files-aliases (cons "js" "*.js"))
+
 ;; Projext config
 (require 'projext)
 (projext-set-projectile-tags-command)
 (define-key projectile-mode-map (kbd "C-c p t") 'projext-regenerate-tags)
-
-;;Global config
-(setq-default tab-width 4)
-(setq confirm-kill-emacs 'yes-or-no-p)
-(setq require-final-newline t)
-(setq c-basic-offset 4)
-(add-hook 'write-file-hooks 'delete-trailing-whitespace)
-(add-hook 'kill-emacs-hook (lambda () (projext-close-current-project)))
 
 ;;Small fix for selection with shift+up
 ; More infos: http://lists.gnu.org/archive/html/help-gnu-emacs/2011-05/msg00174.html
@@ -35,11 +43,11 @@
 
 ;; Etags-select
 (require 'etags-select)
-(global-set-key (kbd "C-x t") 'etags-select-find-tag)
+(define-key prelude-mode-map (kbd "C-x t") 'etags-select-find-tag)
 
 ;; Redo
 (require 'redo)
-(global-set-key (kbd "C-!") 'redo)
+(define-key prelude-mode-map (kbd "C-!") 'redo)
 
 ;; ECB
 (require 'ecb)
@@ -93,16 +101,6 @@
 (when (file-exists-p "~/.emacs.d/php-manual")
   (setq php-manual-path "~/.emacs.d/php-manual"))
 
-(defun my-php-mode-hook ()
-  (interactive)
-  "Function to be called when entering into php-mode."
-  (when (and (require 'auto-complete nil t) (require 'auto-complete-config nil t))
-    (make-local-variable 'ac-sources)
-    (setq ac-sources '(ac-source-words-in-same-mode-buffers
-                       ac-source-dictionary))
-    (when (require 'auto-complete-etags nil t)
-      (add-to-list 'ac-sources 'ac-source-etags))
-    (auto-complete-mode t)))
 (add-hook 'php-mode-hook 'my-php-mode-hook)
 (add-hook 'php-mode-hook 'flymake-php-load)
 (add-hook 'php-mode-hook 'turn-on-eldoc-mode)
@@ -124,17 +122,14 @@
 ;; Helm
 (require 'helm-git)
 (require 'helm-etags+)
-(global-set-key (kbd "C-c C-t") 'helm-etags+-select)
+(define-key prelude-mode-map (kbd "C-c g") 'helm-git-find-files)
+(define-key prelude-mode-map (kbd "C-c C-t") 'helm-etags+-select)
 
 ;;Personal Keybindings
-(global-set-key (kbd "M-<up>") 'windmove-up)
-(global-set-key (kbd "M-<down>") 'windmove-down)
-(global-set-key (kbd "M-<left>") 'windmove-left)
-(global-set-key (kbd "M-<right>") 'windmove-right)
-(global-set-key (kbd "C-:") 'undo)
-(global-set-key (kbd "C-<next>") 'next-buffer)
-(global-set-key (kbd "C-<prior>") 'previous-buffer)
-(global-set-key (kbd "C-,") 'ecb-show-ecb-windows)
-(global-set-key (kbd "C-;") 'ecb-hide-ecb-windows)
-(define-key prelude-mode-map (kbd "C-c g") 'helm-git-find-files)
-(define-key prelude-mode-map (kbd "C-c C-g") 'prelude-google)
+(define-key prelude-mode-map (kbd "M-<up>") 'windmove-up)
+(define-key prelude-mode-map (kbd "M-<down>") 'windmove-down)
+(define-key prelude-mode-map (kbd "M-<left>") 'windmove-left)
+(define-key prelude-mode-map (kbd "M-<right>") 'windmove-right)
+(define-key prelude-mode-map (kbd "C-:") 'undo)
+(define-key prelude-mode-map (kbd "C-,") 'ecb-show-ecb-windows)
+(define-key prelude-mode-map (kbd "C-;") 'ecb-hide-ecb-windows)

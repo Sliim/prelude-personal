@@ -145,7 +145,7 @@
            (/= (length (php-project-tags-file projext-current-project)) 0)
            (file-exists-p (php-project-tags-file projext-current-project)))
       (delete-file (php-project-tags-file projext-current-project))))
-  (when (setq project-root (projectile-project-root))
+  (when  (and (setq project-root (projectile-project-root)) (file-exists-p (concat project-root "TAGS")))
     (delete-file (concat project-root "TAGS"))))
 
 (defun projext-clean-project-desktop ()

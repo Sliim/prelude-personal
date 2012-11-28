@@ -26,12 +26,9 @@
 ;;; Commentary:
 ;;
 ;; Projext provide an extension for projectile and php-project utilities
-;; Some features of projext
+;; Some features of projext:
 ;; - Open/Close a php-project
 ;; - Save project desktop at a time
-;;
-;; TODO
-;; - Custom desktop file
 ;;
 ;;; Code:
 
@@ -54,6 +51,11 @@
   :group 'projext
   :type 'string)
 
+(defcustom projext-desktop-file "emacs.desktop"
+  "Project's desktop filename"
+  :group 'projext
+  :type 'string)
+
 (defvar projext-current-project nil
   "Current project.")
 
@@ -72,13 +74,15 @@
     (when (file-exists-p projext-emacs-dir)
       (setq desktop-path (list projext-emacs-dir))
       (setq desktop-dirname projext-emacs-dir)
+      (setq desktop-base-file-name projext-desktop-file)
+      (setq desktop-base-lock-name (concat projext-desktop-file ".lock"))
       (setq projext-snippets-dir (concat projext-emacs-dir "snippets/"))
 
       (when (file-exists-p projext-snippets-dir)
         (message "Loading project's snippets..")
         (add-to-list 'yas/root-directory projext-snippets-dir)
         (mapc 'yas/load-directory yas/root-directory))
-      (when (file-exists-p (concat projext-emacs-dir ".emacs.desktop"))
+      (when (file-exists-p (concat projext-emacs-dir projext-desktop-file))
         (message "Loading project's desktop..")
         (desktop-read))
       (when (file-exists-p (concat projext-emacs-dir projext-config-file))
@@ -153,10 +157,10 @@
   (when projext-current-project
     (setq projext-emacs-dir (concat (php-project-directory projext-current-project) projext-directory))
     (projext-clear-project-desktop)
-    (when (file-exists-p (concat projext-emacs-dir ".emacs.desktop"))
-      (delete-file (concat projext-emacs-dir ".emacs.desktop")))
-    (when (file-exists-p (concat projext-emacs-dir ".emacs.desktop.lock"))
-      (delete-file (concat projext-emacs-dir ".emacs.desktop.lock")))))
+    (when (file-exists-p (concat projext-emacs-dir projext-desktop-file))
+      (delete-file (concat projext-emacs-dir projext-desktop-file)))
+    (when (file-exists-p (concat projext-emacs-dir projext-desktop-file ".lock"))
+      (delete-file (concat projext-emacs-dir projext-desktop-file ".lock")))))
 
 (defun projext-clean-project ()
   "Remove project's TAGS and desktop files"
@@ -167,7 +171,7 @@
 (defun projext-remove-project-desktop-lock-file ()
   "Remove desktop lock file"
   (when projext-current-project
-    (setq projext-desktop-lock-file (concat (php-project-directory projext-current-project) projext-directory ".emacs.desktop.lock"))
+    (setq projext-desktop-lock-file (concat (php-project-directory projext-current-project) projext-directory projext-desktop-file ".lock"))
     (when (file-exists-p projext-desktop-lock-file)
       (delete-file projext-desktop-lock-file)
       (message "Desktop lock file removed."))))

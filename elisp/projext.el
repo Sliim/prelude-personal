@@ -70,8 +70,7 @@
       (tags-reset-tags-tables)
       (visit-tags-table (php-project-tags-file project)))
     (when (file-exists-p projext-emacs-dir)
-      ;; TODO use custom variable projext-directory
-      (setq desktop-path '(concat (php-project-directory project) ".project/"))
+      (setq desktop-path (list projext-emacs-dir))
       (setq desktop-dirname projext-emacs-dir)
       (setq projext-snippets-dir (concat projext-emacs-dir "snippets/"))
 

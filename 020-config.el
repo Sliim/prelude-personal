@@ -10,7 +10,7 @@
 (add-to-list 'load-path "~/.emacs.d/prelude/personal/elisp")
 (add-to-list 'load-path "~/.emacs.d/prelude/personal/vendor")
 
-;;Prelude config
+;;Prelude
 (add-hook 'prog-mode-hook 'whitespace-turn-off t)
 (add-hook 'text-mode-hook 'turn-off-flyspell t)
 (add-hook 'prog-mode-hook 'turn-off-flyspell t)
@@ -20,7 +20,7 @@
     t)
 (define-key prelude-mode-map (kbd "C-c C-g") 'prelude-google)
 
-;; Projectile config
+;; Projectile
 (add-to-list 'projectile-globally-ignored-directories ".project")
 (add-to-list 'projectile-globally-ignored-directories "logs")
 
@@ -31,10 +31,11 @@
 (add-to-list 'grep-files-aliases (cons "php" "*.php *.phtml"))
 (add-to-list 'grep-files-aliases (cons "js" "*.js"))
 
-;; Projext config
+;; Projext
 (require 'projext)
 (projext-set-projectile-tags-command)
 (define-key projectile-mode-map (kbd "C-c p t") 'projext-regenerate-tags)
+(add-hook 'desktop-after-read-hook 'whitespace-turn-off t)
 
 ;;Small fix for selection with shift+up
 ; More infos: http://lists.gnu.org/archive/html/help-gnu-emacs/2011-05/msg00174.html

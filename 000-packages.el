@@ -7,7 +7,7 @@
 (package-initialize)
 
 (defvar prelude-personal-packages
-  '(ecb php-mode php+-mode auto-complete emms flymake-php
+  '(ecb php-mode php+-mode auto-complete emms flymake-php iedit ir-black-theme
         prelude-js prelude-css prelude-xml prelude-ruby
         minimap markdown-mode magit helm-git
         geben php-extras etags-select)

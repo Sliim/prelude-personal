@@ -63,35 +63,35 @@
   "Function that open project, load snippets, visit tags table and read project desktop if exists"
   (interactive)
   (let ((project (php-project-ask-for-project "Project: ")))
-    (projext-close-current-project)
-    (php-project-dired-directory project)
-    (setq p-emacs-dir (concat (php-project-directory project) projext-directory)
-          p-tags-file (php-project-tags-file project))
-    (when (and (/= (length p-tags-file) 0)
-               (file-exists-p p-tags-file))
-      (message "Loading project's tags table..")
-      (tags-reset-tags-tables)
-      (visit-tags-table p-tags-file))
-    (when (file-exists-p p-emacs-dir)
-      (setq desktop-path (list p-emacs-dir)
-            desktop-dirname p-emacs-dir
-            desktop-base-file-name projext-desktop-file
-            desktop-base-lock-name (concat projext-desktop-file ".lock"))
-      (setq p-snippets-dir (concat p-emacs-dir "snippets/")
-            p-desktop-file (concat p-emacs-dir projext-desktop-file)
-            p-config-file (concat p-emacs-dir projext-config-file)
-            projext-current-project project
-            tags-completion-table nil)
-      (when (file-exists-p p-snippets-dir)
-        (message "Loading project's snippets..")
-        (yas-load-directory p-snippets-dir))
-      (when (file-exists-p p-desktop-file)
-        (message "Loading project's desktop..")
-        (desktop-read))
-      (when (file-exists-p p-config-file)
-        (message "Loading project's configuration..")
-        (load-file p-config-file)))
-    (message (concat "Project " (php-project-nickname projext-current-project) " opened."))))
+    (let ((p-emacs-dir (concat (php-project-directory project) projext-directory))
+          (p-tags-file (php-project-tags-file project)))
+      (projext-close-current-project)
+      (php-project-dired-directory project)
+      (setq projext-current-project project)
+      (when (and (/= (length p-tags-file) 0)
+                 (file-exists-p p-tags-file))
+        (message "Loading project's tags table..")
+        (tags-reset-tags-tables)
+        (visit-tags-table p-tags-file))
+      (when (file-exists-p p-emacs-dir)
+        (setq desktop-path (list p-emacs-dir)
+              desktop-dirname p-emacs-dir
+              desktop-base-file-name projext-desktop-file
+              desktop-base-lock-name (concat projext-desktop-file ".lock")
+              tags-completion-table nil)
+        (let ((p-snippets-dir (concat p-emacs-dir "snippets/"))
+              (p-desktop-file (concat p-emacs-dir projext-desktop-file))
+              (p-config-file (concat p-emacs-dir projext-config-file)))
+          (when (file-exists-p p-snippets-dir)
+            (message "Loading project's snippets..")
+            (yas-load-directory p-snippets-dir))
+          (when (file-exists-p p-desktop-file)
+            (message "Loading project's desktop..")
+            (desktop-read))
+          (when (file-exists-p p-config-file)
+            (message "Loading project's configuration..")
+            (load-file p-config-file))))
+      (message (concat "Project " (php-project-nickname projext-current-project) " opened.")))))
 
 (defun projext-show-current-project ()
   "Show the current project"
@@ -103,24 +103,24 @@
 (defun projext-close-current-project ()
   "Close current project"
   (interactive)
-  (setq p-name (php-project-nickname projext-current-project))
-  (when projext-current-project
-    (when (y-or-n-p (concat "Save desktop for current project " p-name " "))
-      (projext-save-project-desktop))
-    (desktop-clear)
-    (projext-remove-project-desktop-lock-file)
-    (message (concat "Project " p-name " closed."))
-    (setq projext-current-project nil)))
+  (let ((p-name (php-project-nickname projext-current-project)))
+    (when projext-current-project
+      (when (y-or-n-p (concat "Save desktop for current project " p-name " "))
+        (projext-save-project-desktop))
+      (projext-clear-project-desktop)
+      (projext-remove-project-desktop-lock-file)
+      (message (concat "Project " p-name " closed."))
+      (setq projext-current-project nil))))
 
 (defun projext-save-project-desktop ()
   "Function that save current desktop in project's directory"
   (interactive)
   (if projext-current-project
       (progn
-        (setq p-directory (concat (php-project-directory projext-current-project) projext-directory))
-        (when (file-exists-p p-directory)
-          (desktop-save p-directory)
-          (message "Desktop saved.")))
+        (let ((p-directory (concat (php-project-directory projext-current-project) projext-directory)))
+          (when (file-exists-p p-directory)
+            (desktop-save p-directory)
+            (message "Desktop saved."))))
     (message "No project opened..")))
 
 (defun projext-clear-project-desktop ()
@@ -135,23 +135,23 @@
   (interactive)
   (projext-clean-project-tags)
   (projext-set-projectile-tags-command)
-  (setq p-tags-file (php-project-tags-file projext-current-project))
-  (if (and projext-current-project (/= (length p-tags-file) 0))
-      (progn
-        (shell-command (format projectile-tags-command (php-project-directory projext-current-project)))
-        (visit-tags-table p-tags-file))
-    (projectile-regenerate-tags)))
+  (let ((p-tags-file (php-project-tags-file projext-current-project)))
+    (if (and projext-current-project (/= (length p-tags-file) 0))
+        (progn
+          (shell-command (format projectile-tags-command (php-project-directory projext-current-project)))
+          (visit-tags-table p-tags-file))
+      (projectile-regenerate-tags))))
 
 (defun projext-clean-project-tags ()
   "Clear tags table and remove tags file"
   (interactive)
   (tags-reset-tags-tables)
   (when projext-current-project
-    (setq p-tags-file (php-project-tags-file projext-current-project))
-    (when (and
-           (/= (length p-tags-file) 0)
-           (file-exists-p p-tags-file))
-      (delete-file p-tags-file)))
+    (let ((p-tags-file (php-project-tags-file projext-current-project)))
+      (when (and
+             (/= (length p-tags-file) 0)
+             (file-exists-p p-tags-file))
+        (delete-file p-tags-file))))
   (when  (and (setq project-root (projectile-project-root)) (file-exists-p (concat project-root "TAGS")))
     (delete-file (concat project-root "TAGS"))))
 
@@ -159,12 +159,11 @@
   "Clear desktop and remove files"
   (interactive)
   (when projext-current-project
-    (setq p-emacs-dir (concat (php-project-directory projext-current-project) projext-directory)
-          p-desktop-file (concat p-emacs-dir projext-desktop-file))
-    (projext-clear-project-desktop)
-    (when (file-exists-p p-desktop-file)
-      (delete-file p-desktop-file))
-    (projext-remove-project-desktop-lock-file)))
+    (let ((p-desktop-file (concat (concat (php-project-directory projext-current-project) projext-directory) projext-desktop-file)))
+      (projext-clear-project-desktop)
+      (when (file-exists-p p-desktop-file)
+        (delete-file p-desktop-file))
+      (projext-remove-project-desktop-lock-file))))
 
 (defun projext-clean-project ()
   "Remove project's TAGS and desktop files"
@@ -175,13 +174,13 @@
 (defun projext-remove-project-desktop-lock-file ()
   "Remove desktop lock file"
   (when projext-current-project
-    (setq p-desktop-lock (concat (php-project-directory projext-current-project) projext-directory projext-desktop-file ".lock"))
-    (when (file-exists-p p-desktop-lock)
-      (delete-file p-desktop-lock))))
+    (let ((p-desktop-lock (concat (php-project-directory projext-current-project) projext-directory projext-desktop-file ".lock")))
+      (when (file-exists-p p-desktop-lock)
+        (delete-file p-desktop-lock)))))
 
 (defun projext-set-projectile-tags-command ()
   "Set projectile-tags-command custom variable"
-  (setq base-command "ctags-exuberant -Re \
+  (setq p-base-command "ctags-exuberant -Re \
     --languages=PHP \
     --exclude=\"\.git\" \
     --totals=yes \
@@ -194,8 +193,8 @@
     --regex-PHP='/const ([^ ]*)/\1/d/'")
 
   (when (and projext-current-project (/= (length (php-project-tags-file projext-current-project)) 0))
-    (setq base-command (concat base-command " -o " (php-project-tags-file projext-current-project))))
-  (setq projectile-tags-command (concat base-command " %s")))
+    (setq p-base-command (concat p-base-command " -o " (php-project-tags-file projext-current-project))))
+  (setq projectile-tags-command (concat p-base-command " %s")))
 
 (provide 'projext)
 

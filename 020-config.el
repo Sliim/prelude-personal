@@ -65,22 +65,25 @@
 (setq ecb-tip-of-the-day nil)
 
 ;; Auto-complete
-(when (require 'auto-complete nil t)
-   (global-auto-complete-mode t)           ;enable global-mode
-   (make-local-variable 'ac-sources)
-   (setq ac-auto-start nil)                ;not automatically start
-   (setq ac-dwim 3)                        ;Do what i mean
-   (setq ac-override-local-map nil)        ;don't override local map
-   (setq ac-sources '(ac-source-yasnippet ac-source-abbrev ac-source-words-in-buffer))
-   (add-hook 'emacs-lisp-mode-hook
-             (lambda ()
-               (setq ac-sources '(ac-source-yasnippet ac-source-abbrev ac-source-words-in-buffer
-                                                      ac-source-symbols))))
-   (add-hook 'eshell-mode-hook
-             (lambda ()
-               (setq ac-sources '(ac-source-yasnippet ac-source-abbrev ac-source-files-in-current-dir
-                                                      ac-source-words-in-buffer))))
-   (global-set-key (kbd "C-SPC") 'auto-complete))
+(require 'auto-complete)
+(global-auto-complete-mode t)           ;enable global-mode
+(make-local-variable 'ac-sources)
+(setq ac-auto-start nil)                ;not automatically start
+(setq ac-dwim 3)                        ;Do what i mean
+(setq ac-override-local-map nil)        ;don't override local map
+(setq ac-sources '(ac-source-yasnippet ac-source-abbrev ac-source-words-in-buffer))
+(add-hook 'emacs-lisp-mode-hook
+          (lambda ()
+            (setq ac-sources '(ac-source-abbrev
+                               ac-source-words-in-buffer
+                               ac-source-symbols))))
+(add-hook 'eshell-mode-hook
+          (lambda ()
+            (setq ac-sources '(ac-source-abbrev
+                               ac-source-files-in-current-dir
+                               ac-source-words-in-buffer))))
+
+(global-set-key (kbd "C-SPC") 'auto-complete)
 
 ;; PHP
 (require 'php+-mode)

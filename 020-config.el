@@ -119,6 +119,19 @@
 (define-key prelude-mode-map (kbd "C-c g") 'helm-git-find-files)
 (define-key prelude-mode-map (kbd "C-c C-t") 'helm-etags+-select)
 
+;; DVC and helm support for mercurial
+;; DVC Quick install:
+;; - $ bzr get http://bzr.xsteve.at/dvc/ ~/.emacs.d/dvc-bzr
+;; - $ cd ~/.emacs.d/dvc-bzr; autoconf; mkdir build; cd build; ../configure; make
+;; - # make install
+;; - $ mv ./lisp ~/.emacs.d/dvc; cd ~/.emacs.d/; rm -r dvc-bzr
+;; More info on http://www.xsteve.at/prg/emacs_dvc/dvc.html and INSTALL file.
+(when (file-exists-p "~/.emacs.d/dvc")
+  (add-to-list 'load-path "~/.emacs.d/dvc")
+  (when (require 'dvc-autoloads nil t)
+    (require 'helm-ls-hg)
+    (define-key prelude-mode-map (kbd "C-c m") 'helm-hg-find-files-in-project)))
+
 ;;Personal Keybindings
 (define-key prelude-mode-map (kbd "M-<up>") 'windmove-up)
 (define-key prelude-mode-map (kbd "M-<down>") 'windmove-down)

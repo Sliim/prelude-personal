@@ -106,9 +106,13 @@
 ;; Emms
 (require 'emms-setup)
 (require 'emms-streams)
+(require 'emms-info)
+(require 'emms-info-mp3info)
+(require 'emms-browser)
 (emms-standard)
 (emms-default-players)
 (setq emms-source-file-default-directory "~/musics/")
+(add-to-list 'emms-info-functions 'emms-info-mp3info)
 
 ;; Geben
 (require 'geben)

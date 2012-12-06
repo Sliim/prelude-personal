@@ -22,11 +22,9 @@
 
 ;; Projectile
 (add-to-list 'projectile-globally-ignored-directories ".project")
-(add-to-list 'projectile-globally-ignored-directories "logs")
 
 ;; Grep
 (grep-compute-defaults)
-(add-to-list 'grep-find-ignored-directories ".project")
 (add-to-list 'grep-find-ignored-directories "logs")
 (add-to-list 'grep-files-aliases (cons "php" "*.php *.phtml"))
 (add-to-list 'grep-files-aliases (cons "js" "*.js"))

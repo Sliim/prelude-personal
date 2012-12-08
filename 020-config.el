@@ -18,7 +18,6 @@
 (add-hook 'prog-mode-hook
     (lambda nil (remove-hook 'before-save-hook 'whitespace-cleanup t))
     t)
-(define-key prelude-mode-map (kbd "C-c C-g") 'prelude-google)
 
 ;; Projectile
 (add-to-list 'projectile-globally-ignored-directories ".project")
@@ -32,7 +31,6 @@
 ;; Projext
 (require 'projext)
 (projext-set-projectile-tags-command)
-(define-key projectile-mode-map (kbd "C-c p t") 'projext-regenerate-tags)
 (add-hook 'desktop-after-read-hook 'whitespace-turn-off t)
 
 ;;Small fix for selection with shift+up
@@ -42,11 +40,9 @@
 
 ;; Etags-select
 (require 'etags-select)
-(define-key prelude-mode-map (kbd "C-x t") 'etags-select-find-tag)
 
 ;; Redo
 (require 'redo)
-(define-key prelude-mode-map (kbd "C-!") 'redo)
 
 ;; ECB
 (require 'ecb)
@@ -115,8 +111,6 @@
 ;; Helm
 (require 'helm-git)
 (require 'helm-etags+)
-(define-key prelude-mode-map (kbd "C-c g") 'helm-git-find-files)
-(define-key prelude-mode-map (kbd "C-c C-t") 'helm-etags+-select)
 
 ;; DVC and helm support for mercurial
 ;; DVC Quick install:
@@ -128,14 +122,18 @@
 (when (file-exists-p "~/.emacs.d/dvc")
   (add-to-list 'load-path "~/.emacs.d/dvc")
   (when (require 'dvc-autoloads nil t)
-    (require 'helm-ls-hg)
-    (define-key prelude-mode-map (kbd "C-c m") 'helm-hg-find-files-in-project)))
+    (require 'helm-ls-hg)))
 
 ;;Personal Keybindings
-(define-key prelude-mode-map (kbd "M-<up>") 'windmove-up)
-(define-key prelude-mode-map (kbd "M-<down>") 'windmove-down)
-(define-key prelude-mode-map (kbd "M-<left>") 'windmove-left)
-(define-key prelude-mode-map (kbd "M-<right>") 'windmove-right)
-(define-key prelude-mode-map (kbd "C-:") 'undo)
-(define-key prelude-mode-map (kbd "C-,") 'ecb-show-ecb-windows)
-(define-key prelude-mode-map (kbd "C-;") 'ecb-hide-ecb-windows)
+(require 'skbd)
+(skbd-global-mode)
+(define-key skbd-mode-map (kbd "C-x C-f") 'helm-find-files)
+(define-key skbd-mode-map (kbd "M-x") 'helm-M-x)
+(define-key skbd-mode-map (kbd "M-<up>") 'windmove-up)
+(define-key skbd-mode-map (kbd "M-<down>") 'windmove-down)
+(define-key skbd-mode-map (kbd "M-<left>") 'windmove-left)
+(define-key skbd-mode-map (kbd "M-<right>") 'windmove-right)
+(define-key skbd-mode-map (kbd "C-:") 'undo)
+(define-key skbd-mode-map (kbd "C-,") 'ecb-show-ecb-windows)
+(define-key skbd-mode-map (kbd "C-;") 'ecb-hide-ecb-windows)
+(define-key skbd-mode-map (kbd "C-!") 'redo)

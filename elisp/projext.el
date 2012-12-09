@@ -1,17 +1,24 @@
 ;;; projext.el --- Extension for project managment utilities projectile/php-project
+;;
+;; Author: Sliim <sliim@mailoo.org>
+;; Version: 1.0.0
+;; Keywords: prelude personal projectile php-project project
 
-;; Author: Sliim
-;; Version: 0.1
-;; Keywords: projectile php-project project
+;; This file is not part of GNU Emacs.
 
-;; This file is NOT part of GNU Emacs.
+;;; Commentary:
+
+;; Projext provide an extension for projectile and php-project utilities
+;; Some features of projext:
+;; - Open/Close a php-project
+;; - Save project desktop at a time
 
 ;;; License:
 
-;; This program is free software; you can redistribute it and/or modify
-;; it under the terms of the GNU General Public License as published by
-;; the Free Software Foundation; either version 3, or (at your option)
-;; any later version.
+;; This program is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU General Public License
+;; as published by the Free Software Foundation; either version 3
+;; of the License, or (at your option) any later version.
 ;;
 ;; This program is distributed in the hope that it will be useful,
 ;; but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -23,13 +30,6 @@
 ;; Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;; Commentary:
-;;
-;; Projext provide an extension for projectile and php-project utilities
-;; Some features of projext:
-;; - Open/Close a php-project
-;; - Save project desktop at a time
-;;
 ;;; Code:
 
 ;; requires

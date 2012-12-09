@@ -1,0 +1,53 @@
+* Emacs Prelude Personal
+
+This is simply my prelude personal directory.
+
+** Installation
+
+To install prelude please follow this link: https://github.com/bbatsov/prelude
+
+To install this configuration:
+#+BEGIN_SRC shell
+mv ~/.emacs.d/prelude/personal ~/.emacs.d/prelude/personal.old
+git clone https://github.com/Sliim/prelude-personal.git ~/.emacs.d/prelude/personal2
+#+END_SRC
+
+** Prelude changes
+
+I do minor change on prelude-editor.el for windmove default keybindings:
+
+#+BEGIN_SRC diff
+diff --git a/prelude/prelude-editor.el b/prelude/prelude-editor.el
+index 706bdf7..e6b7b7a 100644
+--- a/prelude/prelude-editor.el
++++ b/prelude/prelude-editor.el
+@@ -116,7 +116,7 @@
+
+ ;; use shift + arrow keys to switch between visible buffers
+ (require 'windmove)
+-(windmove-default-keybindings)
++(windmove-default-keybindings 'meta)
+
+ ;; automatically save buffers associated with files on buffer switch
+ ;; and on windows switch
+#+END_SRC
+
+** vendor/ directory
+
+vendor/ directory contains some packages that are not packaged in elpa.
+
+Actually these packages are:
+  - auto-complete-etags.el (https://github.com/emacsmirror/auto-complete-etags)
+  - helm-etags+.el (https://github.com/jixiuf/helm-etags-plus)
+  - helm-ls-hg.el (https://github.com/emacs-helm/helm-mercurial-queue)
+  - helm-mercurial.el (https://github.com/emacs-helm/helm-mercurial-queue)
+  - redo.el (https://github.com/jixiuf/helm-etags-plus)
+
+** elisp/ directory
+
+elisp/ directory contains some personal packages.
+
+Actually these packages are:
+  - projext.el (a bridge betweek php-project and projectile)
+  - skbd.el (personal keybindings preconfigured into a minor mode)
+

@@ -1,17 +1,19 @@
 ;;; skbd.el --- This is a minor mode to manage my personal kbd map
+;;
+;; Author: Sliim <sliim@mailoo.org>
+;; Version: 1.0.0
+;; Keywords: prelude personal keybindings
 
-;; Author: Sliim
-;; Version: 0.1
-;; Keywords: keybindings
+;; This file is not part of GNU Emacs.
 
-;; This file is NOT part of GNU Emacs.
+;;; Commentary:
 
 ;;; License:
 
-;; This program is free software; you can redistribute it and/or modify
-;; it under the terms of the GNU General Public License as published by
-;; the Free Software Foundation; either version 3, or (at your option)
-;; any later version.
+;; This program is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU General Public License
+;; as published by the Free Software Foundation; either version 3
+;; of the License, or (at your option) any later version.
 ;;
 ;; This program is distributed in the hope that it will be useful,
 ;; but WITHOUT ANY WARRANTY; without even the implied warranty of

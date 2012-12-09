@@ -17,19 +17,19 @@ git clone https://github.com/Sliim/prelude-personal.git ~/.emacs.d/prelude/perso
 I do minor change on prelude-editor.el for windmove default keybindings:
 
 #+BEGIN_SRC diff
-diff --git a/prelude/prelude-editor.el b/prelude/prelude-editor.el
-index 706bdf7..e6b7b7a 100644
---- a/prelude/prelude-editor.el
-+++ b/prelude/prelude-editor.el
-@@ -116,7 +116,7 @@
-
- ;; use shift + arrow keys to switch between visible buffers
- (require 'windmove)
--(windmove-default-keybindings)
-+(windmove-default-keybindings 'meta)
-
- ;; automatically save buffers associated with files on buffer switch
- ;; and on windows switch
+> diff --git a/prelude/prelude-editor.el b/prelude/prelude-editor.el
+> index 706bdf7..e6b7b7a 100644
+> --- a/prelude/prelude-editor.el
+> +++ b/prelude/prelude-editor.el
+> @@ -116,7 +116,7 @@
+>
+>  ;; use shift + arrow keys to switch between visible buffers
+>  (require 'windmove)
+> -(windmove-default-keybindings)
+> +(windmove-default-keybindings 'meta)
+>
+>  ;; automatically save buffers associated with files on buffer switch
+>  ;; and on windows switch
 #+END_SRC
 
 ** vendor/ directory

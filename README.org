@@ -9,7 +9,7 @@ To install prelude please follow this link: https://github.com/bbatsov/prelude
 To install this configuration:
 #+BEGIN_SRC shell
 mv ~/.emacs.d/prelude/personal ~/.emacs.d/prelude/personal.old
-git clone https://github.com/Sliim/prelude-personal.git ~/.emacs.d/prelude/personal2
+git clone https://github.com/Sliim/prelude-personal.git ~/.emacs.d/prelude/personal
 #+END_SRC
 
 ** Prelude changes

@@ -54,44 +54,42 @@ Actually these packages are:
 ** Keybindings
 *** Skbd
 
-|-----------+----------------------|
-| Key       | Command              |
-|-----------+----------------------|
-| M-x       | helm-M-x             |
-| M-<up>    | windmove-up          |
-| M-<down>  | windmove-down        |
-| M-<left>  | windmove-left        |
-| M-<right> | windmove-right       |
-| C-:       | undo                 |
-| C-!       | redo                 |
-| C-,       | ecb-show-ecb-windows |
-| C-;       | ecb-hide-ecb-windows |
-|-----------+----------------------|
+|-------------+------------------------|
+| Key         | Command                |
+|-------------+------------------------|
+| ~M-x~       | ~helm-M-x~             |
+| ~M-<up>~    | ~windmove-up~          |
+| ~M-<down>~  | ~windmove-down~        |
+| ~M-<left>~  | ~windmove-left~        |
+| ~M-<right>~ | ~windmove-right~       |
+| ~C-:~       | ~undo~                 |
+| ~C-!~       | ~redo~                 |
+| ~C-<comma>~ | ~ecb-show-ecb-windows~ |
+| ~C-;~       | ~ecb-hide-ecb-windows~ |
 
-|-------------+-------------------------------|
-| Key         | Command                       |
-|-------------+-------------------------------|
-| C-M-< t     | etags-select-find-tag         |
-| C-M-< h g   | helm-git-find-files           |
-| C-M-< h t   | helm-etags+-select            |
-| C-M-< h p   | helm-prelude                  |
-| C-M-< h h   | helm-hg-find-files-in-project |
-| C-M-< h f   | helm-find-files               |
-| C-M-< p o   | projext-open-project          |
-| C-M-< p i   | projext-show-current-project  |
-| C-M-< p x   | projext-close-current-project |
-| C-M-< p s   | projext-save-project-desktop  |
-| C-M-< p t   | projext-regenerate-tags       |
-| C-M-< p c t | projext-clean-project-tags    |
-| C-M-< p c d | projext-clean-project-desktop |
-| C-M-< p c a | projext-clean-project         |
-| C-M-< e a   | emms-add-directory-tree       |
-| C-M-< e n   | emms-next                     |
-| C-M-< e b   | emms-previous                 |
-| C-M-< e p   | emms-pause                    |
-| C-M-< e h   | helm-emms                     |
-| C-M-< e l   | emms-browser                  |
-| C-M-< f     | projectile-find-file          |
-| C-M-< g     | magit-status                  |
-| C-M-< w     | whitespace-mode               |
-|-------------+-------------------------------|
+|---------------+---------------------------------|
+| Key           | Command                         |
+|---------------+---------------------------------|
+| ~C-M-< t~     | ~etags-select-find-tag~         |
+| ~C-M-< h g~   | ~helm-git-find-files~           |
+| ~C-M-< h t~   | ~helm-etags+-select~            |
+| ~C-M-< h p~   | ~helm-prelude~                  |
+| ~C-M-< h h~   | ~helm-hg-find-files-in-project~ |
+| ~C-M-< h f~   | ~helm-find-files~               |
+| ~C-M-< p o~   | ~projext-open-project~          |
+| ~C-M-< p i~   | ~projext-show-current-project~  |
+| ~C-M-< p x~   | ~projext-close-current-project~ |
+| ~C-M-< p s~   | ~projext-save-project-desktop~  |
+| ~C-M-< p t~   | ~projext-regenerate-tags~       |
+| ~C-M-< p c t~ | ~projext-clean-project-tags~    |
+| ~C-M-< p c d~ | ~projext-clean-project-desktop~ |
+| ~C-M-< p c a~ | ~projext-clean-project~         |
+| ~C-M-< e a~   | ~emms-add-directory-tree~       |
+| ~C-M-< e n~   | ~emms-next~                     |
+| ~C-M-< e b~   | ~emms-previous~                 |
+| ~C-M-< e p~   | ~emms-pause~                    |
+| ~C-M-< e h~   | ~helm-emms~                     |
+| ~C-M-< e l~   | ~emms-browser~                  |
+| ~C-M-< f~     | ~projectile-find-file~          |
+| ~C-M-< g~     | ~magit-status~                  |
+| ~C-M-< w~     | ~whitespace-mode~               |

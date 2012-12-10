@@ -50,6 +50,7 @@
       (define-key prefix-map (kbd "h g") 'helm-git-find-files)
       (define-key prefix-map (kbd "h t") 'helm-etags+-select)
       (define-key prefix-map (kbd "h p") 'helm-prelude)
+      (define-key prefix-map (kbd "h f") 'helm-find-files)
       (when (require 'helm-ls-hg nil t)
         (define-key prefix-map (kbd "h h") 'helm-hg-find-files-in-project))
       (define-key prefix-map (kbd "p o") 'projext-open-project)

@@ -65,3 +65,5 @@
  '(ac-etags-selection-face ((t (:background "grey15" :foreground "steelBlue"))) t)
  '(ac-selection-face ((t (:background "grey15" :foreground "steelBlue"))))
  '(ecb-default-highlight-face ((((class color) (background dark)) (:background "grey15")))))
+
+;;; custom.el ends here

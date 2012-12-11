@@ -57,3 +57,5 @@
         (package-install p)))))
 
 (prelude-install-personal-packages)
+
+;;; 000-packages.el ends here

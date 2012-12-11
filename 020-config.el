@@ -109,12 +109,11 @@
                                ac-source-words-in-buffer))))
 
 ;; PHP
-(require 'php+-mode)
 (require 'php-mode)
 (require 'php-extras)
 (require 'flymake-php)
-(php+-mode-setup)
-
+(require 'php-project)
+(require 'php-test)
 (when (file-exists-p "~/.emacs.d/php-manual")
   (setq php-manual-path "~/.emacs.d/php-manual"))
 
@@ -166,3 +165,5 @@
 (define-key skbd-mode-map (kbd "C-;") 'ecb-hide-ecb-windows)
 (define-key skbd-mode-map (kbd "C-!") 'redo)
 (define-key skbd-mode-map (kbd "C-SPC") 'auto-complete)
+
+;;; 020-config.el ends here

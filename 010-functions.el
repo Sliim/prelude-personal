@@ -52,3 +52,5 @@
 This function run external shell command `python -m json.tool` on current region."
   (interactive)
   (shell-command-on-region (region-beginning) (region-end) "python -m json.tool"))
+
+;;; 010-functions.el ends here

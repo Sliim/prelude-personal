@@ -156,6 +156,7 @@
 (require 'skbd)
 (skbd-global-mode)
 (define-key skbd-mode-map (kbd "M-x") 'helm-M-x)
+(define-key skbd-mode-map (kbd "C-c h") 'helm-mini)
 (define-key skbd-mode-map (kbd "M-<up>") 'windmove-up)
 (define-key skbd-mode-map (kbd "M-<down>") 'windmove-down)
 (define-key skbd-mode-map (kbd "M-<left>") 'windmove-left)

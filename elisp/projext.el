@@ -152,8 +152,8 @@
              (/= (length p-tags-file) 0)
              (file-exists-p p-tags-file))
         (delete-file p-tags-file))))
-  (when  (and (setq project-root (projectile-project-root)) (file-exists-p (concat project-root "TAGS")))
-    (delete-file (concat project-root "TAGS"))))
+  (when (file-exists-p (concat (projectile-project-root) "TAGS"))
+    (delete-file (concat (projectile-project-root) "TAGS"))))
 
 (defun projext-clean-project-desktop ()
   "Clear desktop and remove files"

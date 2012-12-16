@@ -38,7 +38,12 @@
 (require 'emms)
 
 (defgroup skbd nil
-  "Sliim personal keybindings")
+  "Sliim personal keybindings"
+  :group 'prelude
+  :group 'projext
+  :group 'helm
+  :group 'emms
+  :group 'etags-select-mode)
 
 (defvar skbd-keymap-prefix (kbd "C-M-<")
   "Skbd keymap prefix.")

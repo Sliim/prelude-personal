@@ -48,7 +48,7 @@ Actually these packages are:
 elisp/ directory contains some personal packages.
 
 Actually these packages are:
-  - projext.el (a bridge betweek php-project and projectile)
+  - projext.el (a bridge between php-project and projectile)
   - skbd.el (personal keybindings preconfigured into a minor mode)
 
 ** Keybindings

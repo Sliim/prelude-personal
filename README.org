@@ -54,19 +54,18 @@ Actually these packages are:
 ** Keybindings
 *** Skbd
 
-|-------------+------------------------|
-| Key         | Command                |
-|-------------+------------------------|
-| ~M-x~       | ~helm-M-x~             |
-| ~C-c h~     | ~helm-mini~            |
-| ~M-<up>~    | ~windmove-up~          |
-| ~M-<down>~  | ~windmove-down~        |
-| ~M-<left>~  | ~windmove-left~        |
-| ~M-<right>~ | ~windmove-right~       |
-| ~C-:~       | ~undo~                 |
-| ~C-!~       | ~redo~                 |
-| ~C-<comma>~ | ~ecb-show-ecb-windows~ |
-| ~C-;~       | ~ecb-hide-ecb-windows~ |
+|-------------+--------------------------|
+| Key         | Command                  |
+|-------------+--------------------------|
+| ~M-x~       | ~helm-M-x~               |
+| ~C-c h~     | ~helm-mini~              |
+| ~M-<up>~    | ~windmove-up~            |
+| ~M-<down>~  | ~windmove-down~          |
+| ~M-<left>~  | ~windmove-left~          |
+| ~M-<right>~ | ~windmove-right~         |
+| ~C-:~       | ~undo~                   |
+| ~C-!~       | ~redo~                   |
+| ~C-?~       | ~ecb-toggle-ecb-windows~ |
 
 |---------------+---------------------------------|
 | Key           | Command                         |

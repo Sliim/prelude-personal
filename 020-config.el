@@ -161,9 +161,8 @@
 (define-key skbd-mode-map (kbd "M-<down>") 'windmove-down)
 (define-key skbd-mode-map (kbd "M-<left>") 'windmove-left)
 (define-key skbd-mode-map (kbd "M-<right>") 'windmove-right)
+(define-key skbd-mode-map (kbd "C-?") 'ecb-toggle-ecb-windows)
 (define-key skbd-mode-map (kbd "C-:") 'undo)
-(define-key skbd-mode-map (kbd "C-,") 'ecb-show-ecb-windows)
-(define-key skbd-mode-map (kbd "C-;") 'ecb-hide-ecb-windows)
 (define-key skbd-mode-map (kbd "C-!") 'redo)
 (define-key skbd-mode-map (kbd "C-SPC") 'auto-complete)
 

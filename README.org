@@ -93,3 +93,4 @@ Actually these packages are:
 | ~C-M-< f~     | ~projectile-find-file~          |
 | ~C-M-< g~     | ~magit-status~                  |
 | ~C-M-< w~     | ~whitespace-mode~               |
+| ~C-M-< i~     | ~iedit-mode~                    |

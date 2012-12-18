@@ -34,7 +34,6 @@
 (setq confirm-kill-emacs 'yes-or-no-p)
 (setq require-final-newline t)
 (setq c-basic-offset 4)
-;(add-hook 'write-file-hooks 'delete-trailing-whitespace)
 
 ;; Add vendor/ dir to load-path
 (add-to-list 'load-path "~/.emacs.d/personal/elisp")

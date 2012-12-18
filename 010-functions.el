@@ -53,4 +53,9 @@ This function run external shell command `python -m json.tool` on current region
   (interactive)
   (shell-command-on-region (region-beginning) (region-end) "python -m json.tool"))
 
+(defun prelude-c-mode-common-defaults ()
+  "prelude-c-mode-common-defaults rewrited to setup indent-tabs-mode to nil"
+  (setq indent-tabs-mode nil)
+  (setq c-basic-offset 4))
+
 ;;; 010-functions.el ends here

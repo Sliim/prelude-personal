@@ -36,8 +36,8 @@
 (package-initialize)
 
 (defvar prelude-personal-packages
-  '(ecb php-mode php+-mode auto-complete emms flymake-php iedit ir-black-theme
-        prelude-js prelude-css prelude-xml prelude-ruby helm-git
+  '(ecb php-mode php+-mode auto-complete emms flymake-php
+        iedit ir-black-theme helm-git
         geben php-extras etags-select)
   "A list of additional packages to ensure are installed at launch.")
 

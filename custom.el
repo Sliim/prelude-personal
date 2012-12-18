@@ -51,7 +51,10 @@
  '(phpunit-shell-command "/usr/bin/phpunit")
  '(scroll-bar-mode nil)
  '(scroll-conservatively 10000)
- '(scroll-step 1))
+ '(scroll-step 1)
+ '(prelude-whitespace nil)
+ '(prelude-guru nil)
+ '(prelude-flyspell nil))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

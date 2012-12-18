@@ -34,35 +34,32 @@
 (setq confirm-kill-emacs 'yes-or-no-p)
 (setq require-final-newline t)
 (setq c-basic-offset 4)
-(add-hook 'write-file-hooks 'delete-trailing-whitespace)
-(add-hook 'kill-emacs-hook (lambda () (projext-close-current-project)))
+;(add-hook 'write-file-hooks 'delete-trailing-whitespace)
 
 ;; Add vendor/ dir to load-path
-(add-to-list 'load-path "~/.emacs.d/prelude/personal/elisp")
-(add-to-list 'load-path "~/.emacs.d/prelude/personal/vendor")
+(add-to-list 'load-path "~/.emacs.d/personal/elisp")
+(add-to-list 'load-path "~/.emacs.d/personal/vendor")
 
 ;;Prelude
-(add-hook 'prog-mode-hook 'whitespace-turn-off t)
-(add-hook 'text-mode-hook 'turn-off-flyspell t)
-(add-hook 'prog-mode-hook 'turn-off-flyspell t)
-(add-hook 'prog-mode-hook 'turn-off-guru-mode t)
-(add-hook 'prog-mode-hook
-    (lambda nil (remove-hook 'before-save-hook 'whitespace-cleanup t))
-    t)
+;; (add-hook 'prog-mode-hook
+;;           (lambda nil (remove-hook 'before-save-hook 'whitespace-cleanup t))
+;;           t)
 
 ;; Projectile
 (add-to-list 'projectile-globally-ignored-directories ".project")
+(setq projectile-globally-ignored-files '())
 
 ;; Grep
 (grep-compute-defaults)
 (add-to-list 'grep-find-ignored-directories "logs")
+(add-to-list 'grep-find-ignored-files "TAGS")
 (add-to-list 'grep-files-aliases (cons "php" "*.php *.phtml"))
 (add-to-list 'grep-files-aliases (cons "js" "*.js"))
 
 ;; Projext
 (require 'projext)
 (projext-set-projectile-tags-command)
-(add-hook 'desktop-after-read-hook 'whitespace-turn-off t)
+(add-hook 'kill-emacs-hook (lambda () (projext-close-current-project)))
 
 ;;Small fix for selection with shift+up
 ; More infos: http://lists.gnu.org/archive/html/help-gnu-emacs/2011-05/msg00174.html

@@ -40,11 +40,6 @@
 (add-to-list 'load-path "~/.emacs.d/personal/elisp")
 (add-to-list 'load-path "~/.emacs.d/personal/vendor")
 
-;;Prelude
-;; (add-hook 'prog-mode-hook
-;;           (lambda nil (remove-hook 'before-save-hook 'whitespace-cleanup t))
-;;           t)
-
 ;; Projectile
 (add-to-list 'projectile-globally-ignored-directories ".project")
 (setq projectile-globally-ignored-files '())

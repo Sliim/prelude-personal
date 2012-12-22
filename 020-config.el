@@ -39,6 +39,10 @@
 (add-to-list 'load-path "~/.emacs.d/personal/elisp")
 (add-to-list 'load-path "~/.emacs.d/personal/vendor")
 
+;; Prelude
+;;Disable ruby-block-mode by default
+(ruby-block-mode -1)
+
 ;; Projectile
 (add-to-list 'projectile-globally-ignored-directories ".project")
 (setq projectile-globally-ignored-files '())

@@ -7,29 +7,18 @@ This is simply my prelude personal directory.
 To install prelude please follow this link: https://github.com/bbatsov/prelude
 
 To install this configuration:
+
+- Clone personal directory:
 #+BEGIN_SRC shell
-mv ~/.emacs.d/prelude/personal ~/.emacs.d/prelude/personal.old
-git clone https://github.com/Sliim/prelude-personal.git ~/.emacs.d/prelude/personal
+mv ~/.emacs.d/personal ~/.emacs.d/personal.old
+git clone --recursive https://github.com/Sliim/prelude-personal.git ~/.emacs.d/personal
 #+END_SRC
 
-** Prelude changes
-
-I do minor change on prelude-editor.el for windmove default keybindings:
-
-#+BEGIN_SRC diff
-> diff --git a/core/prelude-editor.el b/core/prelude-editor.el
-> index 358e1b7..1ffc2fe 100644
-> --- a/core/prelude-editor.el
-> +++ b/core/prelude-editor.el
-> @@ -137,7 +137,7 @@
->
->  ;; use shift + arrow keys to switch between visible buffers
->  (require 'windmove)
-> -(windmove-default-keybindings)
-> +(windmove-default-keybindings 'meta)
->
->  ;; automatically save buffers associated with files on buffer switch
->  ;; and on windows switch
+- I do some minor changes in prelude:
+#+BEGIN_SRC shell
+cd ~/.emacs.d
+git checkout 2f098392c7acf1d122997caf97c42d92a0536405
+git am --signoff < ~/.emacs.d/personal/prelude.patch
 #+END_SRC
 
 ** vendor/ directory

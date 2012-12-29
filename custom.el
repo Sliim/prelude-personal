@@ -58,7 +58,7 @@
 
 (custom-theme-set-faces
  'zenburn
- '(default ((t (:background "grey5"))))
+ '(default ((t (:background "grey5" :height 85 :width normal))))
  '(font-lock-comment-face ((t (:foreground "grey25"))))
  '(font-lock-comment-delimiter-face ((t (:foreground "grey25"))))
  '(font-lock-constant-face ((t (:foreground "grey50"))))

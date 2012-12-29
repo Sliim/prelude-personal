@@ -56,12 +56,14 @@
  '(prelude-guru nil)
  '(prelude-flyspell nil))
 
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "#3f3f3f" :foreground "#dcdccc" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 85 :width normal :foundry "unknown" :family "DejaVu Sans Mono"))))
+(custom-theme-set-faces
+ 'zenburn
+ '(default ((t (:background "grey5"))))
+ '(font-lock-comment-face ((t (:foreground "grey25"))))
+ '(font-lock-comment-delimiter-face ((t (:foreground "grey25"))))
+ '(font-lock-constant-face ((t (:foreground "grey50"))))
+ '(hl-line-face ((t (:background "grey15"))))
+ '(hl-line ((t (:background "grey15" :foreground "steelBlue"))))
  '(ac-candidate-face ((t (:background "gray50" :foreground "black"))))
  '(ac-candidate-mouse-face ((t (:background "gray50" :foreground "black"))))
  '(ac-etags-candidate-face ((t (:background "grey50" :foreground "black"))) t)

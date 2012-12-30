@@ -70,14 +70,13 @@
  '(ac-etags-selection-face ((t (:background "grey15" :foreground "SteelBlue"))) t)
  '(ac-selection-face ((t (:background "grey15" :foreground "SteelBlue"))))
  '(ecb-default-highlight-face ((((class color) (background dark)) (:background "grey15"))))
- '(ecb-method-face ((t (:background "cornflower blue" :foreground "green"))))
+ '(ecb-default-highlight-face ((t (:background "DodgerBlue2"))))
  '(mode-line ((t (:foreground "SkyBlue2"))))
  '(mode-line-buffer-id ((t (:foreground "DeepSkyBlue"))))
  '(mode-line-inactive ((t (:foreground "DodgerBlue4"))))
  '(minibuffer-prompt ((t (:foreground "LightSkyBlue"))))
  '(helm-header ((t (:foreground "SteelBlue"))))
  '(helm-source-header ((t (:foreground "LightSkyBlue"))))
- '(helm-candidate-number ((t (:foreground "LightSkyBlue"))))
- '(ecb-default-highlight-face ((t (:background "DodgerBlue2")))))
+ '(helm-candidate-number ((t (:foreground "LightSkyBlue")))))
 
 ;;; custom.el ends here

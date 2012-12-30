@@ -58,17 +58,26 @@
 
 (custom-theme-set-faces
  'zenburn
- '(default ((t (:background "grey5" :height 85 :width normal))))
- '(font-lock-comment-face ((t (:foreground "grey25"))))
- '(font-lock-comment-delimiter-face ((t (:foreground "grey25"))))
+ '(default ((t (:background "grey10" :foreground "white" :height 85 :width normal))))
+ '(font-lock-comment-face ((t (:foreground "grey30"))))
+ '(font-lock-comment-delimiter-face ((t (:foreground "grey30"))))
  '(font-lock-constant-face ((t (:foreground "grey50"))))
  '(hl-line-face ((t (:background "grey15"))))
- '(hl-line ((t (:background "grey15" :foreground "steelBlue"))))
+ '(hl-line ((t (:background "grey15"))))
  '(ac-candidate-face ((t (:background "gray50" :foreground "black"))))
  '(ac-candidate-mouse-face ((t (:background "gray50" :foreground "black"))))
  '(ac-etags-candidate-face ((t (:background "grey50" :foreground "black"))) t)
- '(ac-etags-selection-face ((t (:background "grey15" :foreground "steelBlue"))) t)
- '(ac-selection-face ((t (:background "grey15" :foreground "steelBlue"))))
- '(ecb-default-highlight-face ((((class color) (background dark)) (:background "grey15")))))
+ '(ac-etags-selection-face ((t (:background "grey15" :foreground "SteelBlue"))) t)
+ '(ac-selection-face ((t (:background "grey15" :foreground "SteelBlue"))))
+ '(ecb-default-highlight-face ((((class color) (background dark)) (:background "grey15"))))
+ '(ecb-method-face ((t (:background "cornflower blue" :foreground "green"))))
+ '(mode-line ((t (:foreground "SkyBlue2"))))
+ '(mode-line-buffer-id ((t (:foreground "DeepSkyBlue"))))
+ '(mode-line-inactive ((t (:foreground "DodgerBlue4"))))
+ '(minibuffer-prompt ((t (:foreground "LightSkyBlue"))))
+ '(helm-header ((t (:foreground "SteelBlue"))))
+ '(helm-source-header ((t (:foreground "LightSkyBlue"))))
+ '(helm-candidate-number ((t (:foreground "LightSkyBlue"))))
+ '(ecb-default-highlight-face ((t (:background "DodgerBlue2")))))
 
 ;;; custom.el ends here

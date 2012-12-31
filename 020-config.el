@@ -42,6 +42,7 @@
 ;; Prelude
 ;;Disable ruby-block-mode by default
 (ruby-block-mode -1)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; Projectile
 (add-to-list 'projectile-globally-ignored-directories ".project")

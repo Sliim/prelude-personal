@@ -40,9 +40,11 @@
 (add-to-list 'load-path "~/.emacs.d/personal/vendor")
 
 ;; Prelude
-;;Disable ruby-block-mode by default
 (ruby-block-mode -1)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+(add-hook 'after-init-hook (lambda ()
+                             (when (null window-system)
+                               (disable-theme 'zenburn))))
 
 ;; Projectile
 (add-to-list 'projectile-globally-ignored-directories ".project")

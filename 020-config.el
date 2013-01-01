@@ -42,9 +42,6 @@
 ;; Prelude
 (ruby-block-mode -1)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
-(add-hook 'after-init-hook (lambda ()
-                             (when (null window-system)
-                               (disable-theme 'zenburn))))
 
 ;; Projectile
 (add-to-list 'projectile-globally-ignored-directories ".project")

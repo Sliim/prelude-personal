@@ -59,6 +59,7 @@
 (custom-theme-set-faces
  'zenburn
  '(default ((t (:background "grey10" :foreground "white" :height 85 :width normal))))
+ '(region ((t (:background "SkyBlue4"))))
  '(font-lock-comment-face ((t (:foreground "grey30"))))
  '(font-lock-comment-delimiter-face ((t (:foreground "grey30"))))
  '(font-lock-constant-face ((t (:foreground "grey50"))))
@@ -71,9 +72,9 @@
  '(ac-selection-face ((t (:background "grey15" :foreground "SteelBlue"))))
  '(ecb-default-highlight-face ((((class color) (background dark)) (:background "grey15"))))
  '(ecb-default-highlight-face ((t (:background "DodgerBlue2"))))
- '(mode-line ((t (:foreground "SkyBlue2"))))
+ '(mode-line ((t (:foreground "SkyBlue2" :background "grey30"))))
  '(mode-line-buffer-id ((t (:foreground "DeepSkyBlue"))))
- '(mode-line-inactive ((t (:foreground "DodgerBlue4"))))
+ '(mode-line-inactive ((t (:foreground "DodgerBlue4" :background "grey30"))))
  '(minibuffer-prompt ((t (:foreground "LightSkyBlue"))))
  '(helm-header ((t (:foreground "SteelBlue"))))
  '(helm-source-header ((t (:foreground "LightSkyBlue"))))

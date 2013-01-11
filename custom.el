@@ -74,7 +74,7 @@
  '(ecb-default-highlight-face ((t (:background "DodgerBlue2"))))
  '(mode-line ((t (:foreground "SkyBlue2" :background "grey30"))))
  '(mode-line-buffer-id ((t (:foreground "DeepSkyBlue"))))
- '(mode-line-inactive ((t (:foreground "DodgerBlue4" :background "grey30"))))
+ '(mode-line-inactive ((t (:foreground "DodgerBlue3" :background "grey30"))))
  '(minibuffer-prompt ((t (:foreground "LightSkyBlue"))))
  '(helm-header ((t (:foreground "SteelBlue"))))
  '(helm-source-header ((t (:foreground "LightSkyBlue"))))

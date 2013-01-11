@@ -17,7 +17,6 @@ git clone --recursive https://github.com/Sliim/prelude-personal.git ~/.emacs.d/p
 - I do some minor changes in prelude:
 #+BEGIN_SRC shell
 cd ~/.emacs.d
-git checkout 2f098392c7acf1d122997caf97c42d92a0536405
 git am --signoff < ~/.emacs.d/personal/prelude.patch
 #+END_SRC
 

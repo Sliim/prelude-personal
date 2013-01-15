@@ -54,7 +54,15 @@
  '(scroll-step 1)
  '(prelude-whitespace nil)
  '(prelude-guru nil)
- '(prelude-flyspell nil))
+ '(prelude-flyspell nil)
+ '(ps-font-size 8)
+ '(ps-header-font-size 9)
+ '(ps-header-title-font-size 10)
+ '(ps-line-number t)
+ '(ps-line-number-font-size 8)
+ '(ps-line-number-step 1)
+ '(ps-line-number t)
+ '(ps-print-color-p 'black-white))
 
 (custom-theme-set-faces
  'zenburn

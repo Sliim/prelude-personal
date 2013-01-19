@@ -148,7 +148,7 @@
   (when (require 'dvc-autoloads nil t)
     (require 'helm-ls-hg)))
 
-;;Personal Keybindings
+;; Personal Keybindings
 (require 'skbd)
 (skbd-global-mode)
 (define-key skbd-mode-map (kbd "M-x") 'helm-M-x)
@@ -161,5 +161,10 @@
 (define-key skbd-mode-map (kbd "C-:") 'undo)
 (define-key skbd-mode-map (kbd "C-!") 'redo)
 (define-key skbd-mode-map (kbd "C-SPC") 'auto-complete)
+
+;; Load private config if exists
+(let ((private-config-file (concat prelude-personal-dir "private-config.el")))
+  (when (file-exists-p private-config-file)
+    (load-file private-config-file)))
 
 ;;; 020-config.el ends here

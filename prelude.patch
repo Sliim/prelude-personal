@@ -1,6 +1,6 @@
-From 78788319fb4132e8b7afc1a74872ae374915c92c Mon Sep 17 00:00:00 2001
+From ecb4de5c709cc403456b55baa5bfcf849a6d300a Mon Sep 17 00:00:00 2001
 From: Sliim <sliim@mailoo.org>
-Date: Sat, 22 Dec 2012 02:02:32 +0100
+Date: Sat, 19 Jan 2013 13:50:19 +0000
 Subject: [PATCH] Prelude personal changes
 
 ---
@@ -10,19 +10,20 @@ Subject: [PATCH] Prelude personal changes
  3 files changed, 5 insertions(+), 2 deletions(-)
 
 diff --git a/.gitignore b/.gitignore
-index ccb90f3..121338e 100644
+index d19d89f..4963d8d 100644
 --- a/.gitignore
 +++ b/.gitignore
-@@ -15,3 +15,6 @@ custom.el
- places
- .smex-items
- savefile/
-+personal/
-+php-manual/
-+ac-comphist.dat
-\ No newline at end of file
+@@ -1,5 +1,8 @@
+ *~
+ *.elc
++/personal
++/php-manual
++/ac-comphist.dat
+ auto-save-list
+ recentf
+ savehist
 diff --git a/core/prelude-editor.el b/core/prelude-editor.el
-index 3d6cd03..09892e8 100644
+index 8e54be4..b644755 100644
 --- a/core/prelude-editor.el
 +++ b/core/prelude-editor.el
 @@ -137,7 +137,7 @@
@@ -35,10 +36,10 @@ index 3d6cd03..09892e8 100644
  ;; automatically save buffers associated with files on buffer switch
  ;; and on windows switch
 diff --git a/modules/prelude-c.el b/modules/prelude-c.el
-index 6839c1c..0762955 100644
+index e92fca7..1b1a25a 100644
 --- a/modules/prelude-c.el
 +++ b/modules/prelude-c.el
-@@ -36,7 +36,7 @@
+@@ -35,7 +35,7 @@
  (require 'prelude-programming)
  
  (defun prelude-c-mode-common-defaults ()

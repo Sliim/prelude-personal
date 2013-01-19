@@ -35,16 +35,14 @@
 (setq require-final-newline t)
 (setq c-basic-offset 4)
 
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 ;; Auto mode
 (add-to-list 'auto-mode-alist '("\\.zsh\\'" . shell-script-mode))
 
 ;; Add vendor/ dir to load-path
 (add-to-list 'load-path "~/.emacs.d/personal/elisp")
 (add-to-list 'load-path "~/.emacs.d/personal/vendor")
-
-;; Prelude
-(ruby-block-mode -1)
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; Projectile
 (add-to-list 'projectile-globally-ignored-directories ".project")

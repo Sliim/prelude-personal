@@ -74,6 +74,7 @@
       (define-key prefix-map (kbd "e l") 'emms-browser)
       (define-key prefix-map (kbd "f") 'projectile-find-file)
       (define-key prefix-map (kbd "g") 'magit-status)
+      (define-key prefix-map (kbd "m") 'monky-status)
       (define-key prefix-map (kbd "w") 'whitespace-mode)
       (define-key prefix-map (kbd "i") 'iedit-mode)
 

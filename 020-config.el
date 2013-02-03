@@ -136,6 +136,9 @@
 (require 'helm-git)
 (require 'helm-etags+)
 
+;; Monky
+(setq monky-process-type 'cmdserver)
+
 ;; DVC and helm support for mercurial
 ;; DVC Quick install:
 ;; - $ bzr get http://bzr.xsteve.at/dvc/ ~/.emacs.d/dvc-bzr

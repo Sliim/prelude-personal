@@ -163,8 +163,8 @@
 (define-key skbd-mode-map (kbd "C-SPC") 'auto-complete)
 
 ;; Load private config if exists
-(let ((private-config-file (concat prelude-personal-dir "private-config.el")))
-  (when (file-exists-p private-config-file)
-    (load-file private-config-file)))
+(let ((user-config-file "~/.emacsrc"))
+  (when (file-exists-p user-config-file)
+    (load-file user-config-file)))
 
 ;;; 020-config.el ends here

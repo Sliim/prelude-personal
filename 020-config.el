@@ -29,6 +29,9 @@
 
 ;;; Code:
 
+;;Load ir-black theme
+(load-theme 'ir-black t)
+
 ;;Global config
 (setq-default tab-width 4)
 (setq confirm-kill-emacs 'yes-or-no-p)

@@ -34,6 +34,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ansi-color-names-vector ["#3f3f3f" "#cc9393" "#7f9f7f" "#f0dfaf" "#8cd0d3" "#dc8cc3" "#93e0e3" "#dcdccc"])
+ '(ansi-term-color-vector ["#3f3f3f" "#cc9393" "#7f9f7f" "#f0dfaf" "#8cd0d3" "#dc8cc3" "#93e0e3" "#dcdccc"] t)
+ '(custom-safe-themes (quote ("0bac11bd6a3866c6dee5204f76908ec3bdef1e52f3c247d5ceca82860cccfa9d" "27b53b2085c977a8919f25a3a76e013ef443362d887d52eaa7121e6f92434972" default)))
  '(delete-trailing-lines t)
  '(ecb-history-make-buckets (quote never))
  '(ecb-kill-buffer-clears-history (quote auto))
@@ -42,6 +45,7 @@
  '(ecb-options-version "2.40")
  '(ecb-primary-secondary-mouse-buttons (quote mouse-1--mouse-2))
  '(ecb-show-sources-in-directories-buffer (quote ("left7" "left13" "left14" "left15" "sliim-layout")))
+ '(fci-rule-color "#383838")
  '(global-auto-revert-mode t)
  '(mouse-wheel-progressive-speed nil)
  '(mouse-wheel-scroll-amount (quote (2 ((shift) . 2) ((control)))))
@@ -49,20 +53,19 @@
  '(phpcs-shell-command "/usr/bin/phpcs")
  '(phpcs-standard "Sliim")
  '(phpunit-shell-command "/usr/bin/phpunit")
- '(scroll-bar-mode nil)
- '(scroll-conservatively 10000)
- '(scroll-step 1)
- '(prelude-whitespace nil)
- '(prelude-guru nil)
  '(prelude-flyspell nil)
+ '(prelude-guru nil)
+ '(prelude-whitespace nil)
  '(ps-font-size 8)
  '(ps-header-font-size 9)
  '(ps-header-title-font-size 10)
  '(ps-line-number t)
  '(ps-line-number-font-size 8)
  '(ps-line-number-step 1)
- '(ps-line-number t)
- '(ps-print-color-p 'black-white))
+ '(ps-print-color-p (quote black-white))
+ '(scroll-bar-mode nil)
+ '(scroll-conservatively 10000)
+ '(scroll-step 1))
 
 (custom-theme-set-faces
  'zenburn
@@ -87,5 +90,10 @@
  '(helm-header ((t (:foreground "SteelBlue"))))
  '(helm-source-header ((t (:foreground "LightSkyBlue"))))
  '(helm-candidate-number ((t (:foreground "LightSkyBlue")))))
+
+(custom-theme-set-faces
+ 'ir-black
+ '(hl-line ((t (:underline nil))))
+ '(cursor ((t (:background "LightSkyBlue")))))
 
 ;;; custom.el ends here

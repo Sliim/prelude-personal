@@ -49,7 +49,6 @@
  '(global-auto-revert-mode t)
  '(mouse-wheel-progressive-speed nil)
  '(mouse-wheel-scroll-amount (quote (2 ((shift) . 2) ((control)))))
- '(php-project-list (quote (("lpidm" "~/projects/lpidm/" "~/projects/lpidm/.project/TAGS" nil "~/projects/lpidm/tests/phpunit.xml" nil (("" . "") "" "" "" "" "" "" "" "") "Lpidm" "Lpidm") ("sleemacs" "~/projects/sleemacs/" "~/projects/sleemacs/.project/TAGS" nil "" nil (("" . "") "" "" "" "" "" "" "" "") "" "") ("Wdb" "~/projects/Wdb/" "~/projects/Wdb/.project/TAGS" nil "" nil (("" . "") "" "" "" "" "" "" "" "") "Wdb" "Wdb") ("DbPatcher" "~/projects/DbPatcher/" "~/projects/DbPatcher/.project/TAGS" nil "" nil (("" . "") "" "" "" "" "" "" "" "") "DbPatcher" "") ("Zend" "~/opt/zf2/library/Zend/" "~/opt/zf2/TAGS" nil "" nil (("" . "") "" "" "" "" "" "" "" "") "Zend" "Zend") ("SLiib" "~/projects/SLiib/" "~/projects/SLiib/.project/TAGS" nil "~/projects/SLiib/tests/phpunit.xml" nil (("" . "") "" "" "" "" "" "" "" "") "SLiib" "SLiib"))))
  '(phpcs-shell-command "/usr/bin/phpcs")
  '(phpcs-standard "Sliim")
  '(phpunit-shell-command "/usr/bin/phpunit")

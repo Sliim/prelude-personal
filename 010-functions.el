@@ -36,7 +36,7 @@
     (make-local-variable 'ac-sources)
     (setq ac-sources '(ac-source-words-in-same-mode-buffers
                        ac-source-dictionary))
-    (when (require 'auto-complete-etags nil t)
+    (when (and (require 'auto-complete-etags nil t) tags-table-list)
       (add-to-list 'ac-sources 'ac-source-etags))
     (auto-complete-mode t)))
 

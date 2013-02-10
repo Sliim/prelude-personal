@@ -42,17 +42,17 @@
   :group 'php-project)
 
 (defcustom projext-directory ".project/"
-  "Directory where stored TAGS, desktop, snippets files"
+  "Directory where stored TAGS, desktop, snippets files."
   :group 'projext
   :type 'string)
 
 (defcustom projext-config-file "projext-config.el"
-  "Specific configuration file for a project"
+  "Specific configuration file for a project."
   :group 'projext
   :type 'string)
 
 (defcustom projext-desktop-file "emacs.desktop"
-  "Project's desktop filename"
+  "Project's desktop filename."
   :group 'projext
   :type 'string)
 
@@ -60,7 +60,7 @@
   "Current project.")
 
 (defun projext-open-project ()
-  "Function that open project, load snippets, visit tags table and read project desktop if exists"
+  "Function that open project, load snippets, visit tags table and read project desktop if exists."
   (interactive)
   (let ((project (php-project-ask-for-project "Project: ")))
     (let ((p-emacs-dir (concat (php-project-directory project) projext-directory))
@@ -94,14 +94,14 @@
       (message (concat "Project " (php-project-nickname projext-current-project) " opened.")))))
 
 (defun projext-show-current-project ()
-  "Show the current project"
+  "Show the current project."
   (interactive)
   (if projext-current-project
       (message (php-project-nickname projext-current-project))
     (message "none")))
 
 (defun projext-close-current-project ()
-  "Close current project"
+  "Close current project."
   (interactive)
   (let ((p-name (php-project-nickname projext-current-project)))
     (when projext-current-project
@@ -113,7 +113,7 @@
       (setq projext-current-project nil))))
 
 (defun projext-save-project-desktop ()
-  "Function that save current desktop in project's directory"
+  "Function that save current desktop in project's directory."
   (interactive)
   (if projext-current-project
       (progn
@@ -124,14 +124,14 @@
     (message "No project opened..")))
 
 (defun projext-clear-project-desktop ()
-  "Overload desktop-clear to open current project directory when clearing desktop"
+  "Overload `desktop-clear` to open current project directory when clearing desktop."
   (interactive)
   (desktop-clear)
   (when projext-current-project
     (php-project-dired-directory projext-current-project)))
 
 (defun projext-regenerate-tags ()
-  "Regenerate project's tags table"
+  "Regenerate project's tags table."
   (interactive)
   (projext-clean-project-tags)
   (projext-set-projectile-tags-command)
@@ -143,7 +143,7 @@
       (projectile-regenerate-tags))))
 
 (defun projext-clean-project-tags ()
-  "Clear tags table and remove tags file"
+  "Clear tags table and remove tags file."
   (interactive)
   (tags-reset-tags-tables)
   (when projext-current-project
@@ -156,7 +156,7 @@
     (delete-file (concat (projectile-project-root) "TAGS"))))
 
 (defun projext-clean-project-desktop ()
-  "Clear desktop and remove files"
+  "Clear desktop and remove files."
   (interactive)
   (when projext-current-project
     (let ((p-desktop-file (concat (concat (php-project-directory projext-current-project) projext-directory) projext-desktop-file)))
@@ -166,20 +166,20 @@
       (projext-remove-project-desktop-lock-file))))
 
 (defun projext-clean-project ()
-  "Remove project's TAGS and desktop files"
+  "Remove project's TAGS and desktop files."
   (interactive)
   (projext-clean-project-desktop)
   (projext-clean-project-tags))
 
 (defun projext-remove-project-desktop-lock-file ()
-  "Remove desktop lock file"
+  "Remove desktop lock file."
   (when projext-current-project
     (let ((p-desktop-lock (concat (php-project-directory projext-current-project) projext-directory projext-desktop-file ".lock")))
       (when (file-exists-p p-desktop-lock)
         (delete-file p-desktop-lock)))))
 
 (defun projext-set-projectile-tags-command ()
-  "Set projectile-tags-command custom variable"
+  "Set projectile-tags-command custom variable."
   (setq p-base-command "ctags-exuberant -Re \
     --languages=PHP \
     --exclude=\"\.git\" \

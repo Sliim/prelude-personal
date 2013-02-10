@@ -46,6 +46,7 @@
         finally (return t)))
 
 (defun prelude-install-personal-packages ()
+  "Install defined packages."
   (unless (prelude-personal-packages-installed-p)
     (message "%s" "Emacs Prelude is now refreshing its package database...")
     (package-refresh-contents)

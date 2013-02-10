@@ -41,7 +41,7 @@
     (auto-complete-mode t)))
 
 (defun ecb-refresh ()
-  "Refresh ecb window (directories, methods, history)"
+  "Refresh ecb window (directories, methods, history)."
   (interactive)
   (ecb-update-directories-buffer)
   (ecb-clear-history)

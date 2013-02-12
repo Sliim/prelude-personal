@@ -20,6 +20,21 @@ cd ~/.emacs.d
 git am --signoff < ~/.emacs.d/personal/prelude.patch
 #+END_SRC
 
+*** Python requirement
+
+Some packages and python modules are required to operate python development:
+
+On debian-like, install packages with apt below:
+#+BEGIN_SRC shell
+apt-get install pyflakes python-pip python-dev python-virtualenv make build-essential
+#+END_SRC
+
+Python modules can be installed with pip:
+#+BEGIN_SRC shell
+pip install jedi
+pip install epc
+#+END_SRC
+
 ** vendor/ directory
 
 vendor/ directory contains some packages that are not packaged in elpa.

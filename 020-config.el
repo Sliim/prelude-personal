@@ -118,6 +118,12 @@
 
 (add-hook 'php-mode-hook 'php-mode-personal-hook)
 
+;; Python
+(autoload 'jedi:setup "jedi" nil t)
+(setq jedi:setup-keys t)
+(require 'jedi)
+(add-hook 'python-mode-hook 'python-mode-personal-hook)
+
 ;; Emms
 (require 'emms-setup)
 (require 'emms-streams)

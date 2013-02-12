@@ -30,7 +30,7 @@
 ;;; Code:
 
 (defun php-mode-personal-hook ()
-  "Function to be called when entering into php-mode."
+  "Function to be called when entering into `php-mode`."
   (interactive)
   (when (and (require 'auto-complete nil t) (require 'auto-complete-config nil t))
     (make-local-variable 'ac-sources)
@@ -43,5 +43,12 @@
   (turn-on-eldoc-mode)
   (c-set-offset 'case-label '+)
   (define-key php-mode-map (kbd "RET") 'newline-and-indent))
+
+(defun python-mode-personal-hook ()
+  "Function to be called when entering into `python-mode`."
+  (interactive)
+  (jedi:setup)
+  (eldoc-mode 1))
+
 
 ;;; 015-hooks.el ends here

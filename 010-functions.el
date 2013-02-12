@@ -53,4 +53,10 @@ This function run external shell command `python -m json.tool` on current region
   (interactive)
   (shell-command-on-region (region-beginning) (region-end) "python -m json.tool"))
 
+(defun eshell/clear ()
+  "Clear eshell buffer."
+  (interactive)
+  (let ((inhibit-read-only t))
+    (erase-buffer)))
+
 ;;; 010-functions.el ends here

@@ -116,13 +116,7 @@
 (when (file-exists-p "~/.emacs.d/php-manual")
   (setq php-manual-path "~/.emacs.d/php-manual"))
 
-(add-hook 'php-mode-hook 'my-php-mode-hook)
-(add-hook 'php-mode-hook 'flymake-php-load)
-(add-hook 'php-mode-hook 'turn-on-eldoc-mode)
-(add-hook 'php-mode-hook
-          (lambda ()
-            (c-set-offset 'case-label '+)))
-(define-key php-mode-map (kbd "RET") 'newline-and-indent)
+(add-hook 'php-mode-hook 'php-mode-personal-hook)
 
 ;; Emms
 (require 'emms-setup)

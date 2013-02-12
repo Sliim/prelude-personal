@@ -1,4 +1,4 @@
-;;; 010-functions.el --- Emacs Prelude: Personal emacs functions declaration
+;;; 015-hooks.el --- Emacs Prelude: Personal emacs hook's definitions
 ;;
 ;; Author: Sliim <sliim@mailoo.org>
 ;; Version: 1.0.0
@@ -8,7 +8,7 @@
 
 ;;; Commentary:
 
-;; Personal functions
+;; Personal hook's definitions
 
 ;;; License:
 
@@ -29,23 +29,19 @@
 
 ;;; Code:
 
-(defun ecb-refresh ()
-  "Refresh ecb window (directories, methods, history)."
+(defun php-mode-personal-hook ()
+  "Function to be called when entering into php-mode."
   (interactive)
-  (ecb-update-directories-buffer)
-  (ecb-clear-history)
-  (ecb-rebuild-methods-buffer))
+  (when (and (require 'auto-complete nil t) (require 'auto-complete-config nil t))
+    (make-local-variable 'ac-sources)
+    (setq ac-sources '(ac-source-words-in-same-mode-buffers
+                       ac-source-dictionary))
+    (when (and (require 'auto-complete-etags nil t) tags-table-list)
+      (add-to-list 'ac-sources 'ac-source-etags))
+    (auto-complete-mode t))
+  (flymake-php-load)
+  (turn-on-eldoc-mode)
+  (c-set-offset 'case-label '+)
+  (define-key php-mode-map (kbd "RET") 'newline-and-indent))
 
-(defun json-to-human-format ()
-  "Print json string into an human readable format.
-This function run external shell command `python -m json.tool` on current region."
-  (interactive)
-  (shell-command-on-region (region-beginning) (region-end) "python -m json.tool"))
-
-(defun eshell/clear ()
-  "Clear eshell buffer."
-  (interactive)
-  (let ((inhibit-read-only t))
-    (erase-buffer)))
-
-;;; 010-functions.el ends here
+;;; 015-hooks.el ends here

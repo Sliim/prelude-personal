@@ -181,7 +181,7 @@
 (defun projext-set-projectile-tags-command ()
   "Set projectile-tags-command custom variable."
   (setq p-base-command "ctags-exuberant -Re \
-    --languages=PHP \
+    --languages=PHP,Python,Ruby,JavaScript,C,sh \
     --exclude=\"\.git\" \
     --totals=yes \
     --tag-relative=yes \

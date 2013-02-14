@@ -26,14 +26,16 @@ Some packages and python modules are required to operate python development:
 
 On debian-like, install packages with apt below:
 #+BEGIN_SRC shell
-apt-get install pyflakes python-pip python-dev python-virtualenv make build-essential
+apt-get install pyflakes python-virtualenv make build-essential
 #+END_SRC
 
-Python modules can be installed with pip:
+Python module installation (with virtualenv):
 #+BEGIN_SRC shell
-pip install jedi
-pip install epc
+cd ~/.emacs.d/elpa/<jedi_directory>
+make requirements
 #+END_SRC
+
+See https://github.com/tkf/emacs-jedi for more informations.
 
 ** vendor/ directory
 

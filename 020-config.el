@@ -143,6 +143,9 @@
 ;; Markdown
 (add-hook 'markdown-mode-hook 'markdown-mode-personal-hook)
 
+;; Ack
+(setq ack-and-a-half-executable "ack-grep")
+
 ;; Monky
 (setq monky-process-type 'cmdserver)
 

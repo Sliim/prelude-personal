@@ -50,3 +50,10 @@
   (setq-default indent-tabs-mode nil)
   (setq default-tab-width 4)
   (jedi:setup))
+
+(defun markdown-mode-personal-hook ()
+  "Function to be called when entering into `markdown-mode`."
+  (interactive)
+  (define-key markdown-mode-map (kbd "C-c C-c p") 'markdown-preview-with-hf))
+
+;;; 015-hooks.el ends here

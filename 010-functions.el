@@ -56,4 +56,11 @@ This function run external shell command `python -m json.tool` on current region
     (setq nose-global-name "nosetests"))
   (message  (concat "Nose: " nose-global-name)))
 
+(defun markdown-preview-with-hf (&optional output-buffer-name)
+  "Run `markdown' on the current buffer and preview the output 'OUTPUT-BUFFER-NAME' in a browser."
+  (interactive)
+  (browse-url-of-buffer (markdown-standalone markdown-output-buffer-name))
+
+
 ;;; 010-functions.el ends here
+  )

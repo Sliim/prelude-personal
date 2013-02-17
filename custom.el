@@ -64,7 +64,8 @@
  '(ps-print-color-p (quote black-white))
  '(scroll-bar-mode nil)
  '(scroll-conservatively 10000)
- '(scroll-step 1))
+ '(scroll-step 1)
+ '(markdown-xhtml-header-content "<meta charset='utf-8'>"))
 
 (custom-theme-set-faces
  'zenburn

@@ -140,6 +140,9 @@
 (require 'helm-git)
 (require 'helm-etags+)
 
+;; Markdown
+(add-hook 'markdown-mode-hook 'markdown-mode-personal-hook)
+
 ;; Monky
 (setq monky-process-type 'cmdserver)
 

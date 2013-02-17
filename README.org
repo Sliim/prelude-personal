@@ -20,6 +20,11 @@ cd ~/.emacs.d
 git am --signoff < ~/.emacs.d/personal/prelude.patch
 #+END_SRC
 
+- Enable prelude modules
+#+BEGIN_SRC shell
+rm ~/.emacs.d/prelude-modules.el && ln -s ~/.emacs.d/personal/prelude-modules.el ~/.emacs.d/prelude-modules.el
+#+END_SRC
+
 *** Python requirement
 
 Some packages and python modules are required to operate python development:

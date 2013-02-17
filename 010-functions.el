@@ -48,4 +48,12 @@ This function run external shell command `python -m json.tool` on current region
   (let ((inhibit-read-only t))
     (erase-buffer)))
 
+(defun nose-toggle-python-version ()
+  "Toggle python version for nosetests."
+  (interactive)
+  (if (string= "nosetests" nose-global-name)
+      (setq nose-global-name "nosetests-3.2")
+    (setq nose-global-name "nosetests"))
+  (message  (concat "Nose: " nose-global-name)))
+
 ;;; 010-functions.el ends here

@@ -26,7 +26,8 @@ Some packages and python modules are required to operate python development:
 
 On debian-like, install packages with apt below:
 #+BEGIN_SRC shell
-apt-get install pyflakes python-virtualenv make build-essential
+apt-get install pyflakes python-virtualenv make build-essential ipython pep8 python-nose python3-nose
+
 #+END_SRC
 
 Python module installation (with virtualenv):

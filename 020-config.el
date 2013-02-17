@@ -123,6 +123,7 @@
 (setq jedi:setup-keys t)
 (require 'jedi)
 (add-hook 'python-mode-hook 'python-mode-personal-hook)
+(require 'nose)
 
 ;; Emms
 (require 'emms-setup)

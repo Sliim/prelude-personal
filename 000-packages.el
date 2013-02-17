@@ -37,7 +37,7 @@
 
 (defvar prelude-personal-packages
   '(ecb php-mode php+-mode auto-complete emms flymake-php iedit helm-git monky markdown-mode ir-black-theme
-        python-mode flymake-python-pyflakes jedi epc deferred
+        python-mode flymake-python-pyflakes jedi epc deferred nose pep8
         geben php-extras etags-select)
   "A list of additional packages to ensure are installed at launch.")
 

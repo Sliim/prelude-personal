@@ -47,7 +47,6 @@
 (defun python-mode-personal-hook ()
   "Function to be called when entering into `python-mode`."
   (interactive)
+  (setq-default indent-tabs-mode nil)
+  (setq default-tab-width 4)
   (jedi:setup))
-
-
-;;; 015-hooks.el ends here

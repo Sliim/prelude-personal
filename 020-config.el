@@ -40,6 +40,9 @@
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+;; Xterm
+(define-key input-decode-map "\e[1;2A" [S-up])
+
 ;; Auto mode
 (add-to-list 'auto-mode-alist '("\\.zsh\\'" . shell-script-mode))
 

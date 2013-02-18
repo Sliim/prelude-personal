@@ -43,6 +43,15 @@ make requirements
 
 See https://github.com/tkf/emacs-jedi for more informations.
 
+*** PHP requirement
+
+- Download and install PHP manual:
+#+BEGIN_SRC shell
+wget http://fr2.php.net/get/php_manual_en.tar.gz/from/this/mirror -O php_manual.tar.gz
+tar xvfz php_manual.tar.gz && rm php_manual.tar.gz
+mv php-chunked-xhtml ~/.emacs.d/php-manual
+#+END_SRC
+
 ** vendor/ directory
 
 vendor/ directory contains some packages that are not packaged in elpa.

@@ -123,6 +123,11 @@
 (add-hook 'python-mode-hook 'python-mode-personal-hook)
 (require 'nose)
 
+;; Ruby
+(setq rbenv-installation-dir "/usr/local/rbenv")
+(require 'rbenv)
+(global-rbenv-mode)
+
 ;; Emms
 (require 'emms-setup)
 (require 'emms-streams)

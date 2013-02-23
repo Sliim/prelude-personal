@@ -82,7 +82,7 @@ This function run external shell command `python -m json.tool` on current region
   "Return number of unpushed commits in repository `PWD`."
   (when (and (eshell-search-path "git")
              (locate-dominating-file pwd ".git"))
-    (let ((git-output (shell-command-to-string (concat "cd " pwd " && git log --branches --not --remotes --simplify-by-decoration --decorate --oneline | wc -l"))))
+    (let ((git-output (shell-command-to-string (concat "cd " pwd " && git log @{u}.. --oneline | wc -l"))))
       (let ((out (substring git-output 0 -1)))
         (when (not (string= out "0"))
           (propertize (concat " [" out "]")

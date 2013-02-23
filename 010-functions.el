@@ -59,8 +59,20 @@ This function run external shell command `python -m json.tool` on current region
 (defun markdown-preview-with-hf (&optional output-buffer-name)
   "Run `markdown' on the current buffer and preview the output 'OUTPUT-BUFFER-NAME' in a browser."
   (interactive)
-  (browse-url-of-buffer (markdown-standalone markdown-output-buffer-name))
+  (browse-url-of-buffer (markdown-standalone markdown-output-buffer-name)))
 
+;; Eshell utilities
+(defun curr-dir-git-branch-string (pwd)
+  "Return current git branch as a string in current directory `PWD`."
+  (interactive)
+  (when (and (eshell-search-path "git")
+             (locate-dominating-file pwd ".git"))
+    (let ((git-output (shell-command-to-string (concat "cd " pwd " && git branch | grep '\\*' | sed -e 's/^\\* //'"))))
+      (propertize (concat "["
+                          (if (> (length git-output) 0)
+                              (substring git-output 0 -1)
+                            "(no branch)")
+                          "]") 'face `(:foreground "green"))
+      )))
 
 ;;; 010-functions.el ends here
-  )

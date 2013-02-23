@@ -104,11 +104,6 @@
             (setq ac-sources '(ac-source-abbrev
                                ac-source-words-in-buffer
                                ac-source-symbols))))
-(add-hook 'eshell-mode-hook
-          (lambda ()
-            (setq ac-sources '(ac-source-abbrev
-                               ac-source-files-in-current-dir
-                               ac-source-words-in-buffer))))
 
 ;; PHP
 (require 'php-mode)
@@ -148,6 +143,21 @@
 
 ;; Ack
 (setq ack-and-a-half-executable "ack-grep")
+
+;; Eshell
+(if (boundp 'eshell-save-history-on-exit)
+    (setq eshell-save-history-on-exit t))
+(setq eshell-highlight-prompt nil)
+(setq eshell-history-size 512)
+(setq eshell-prompt-regexp "^[^#$]*[#$] ")
+(setq eshell-prompt-function
+      (lambda ()
+        (concat
+         (propertize ((lambda ()
+                        (eshell/pwd))) 'face `(:foreground "yellow"))
+         (or (curr-dir-git-branch-string (eshell/pwd)))
+         (propertize " > " 'face 'default))))
+
 
 ;; Monky
 (setq monky-process-type 'cmdserver)

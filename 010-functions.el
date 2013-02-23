@@ -42,12 +42,6 @@ This function run external shell command `python -m json.tool` on current region
   (interactive)
   (shell-command-on-region (region-beginning) (region-end) "python -m json.tool"))
 
-(defun eshell/clear ()
-  "Clear eshell buffer."
-  (interactive)
-  (let ((inhibit-read-only t))
-    (erase-buffer)))
-
 (defun nose-toggle-python-version ()
   "Toggle python version for nosetests."
   (interactive)
@@ -62,9 +56,19 @@ This function run external shell command `python -m json.tool` on current region
   (browse-url-of-buffer (markdown-standalone markdown-output-buffer-name)))
 
 ;; Eshell utilities
+(defun eshell/clear ()
+  "Clear eshell buffer."
+  (interactive)
+  (let ((inhibit-read-only t))
+    (erase-buffer)))
+
+(defun eshell/magit ()
+  "Open magit in current repository."
+  (interactive)
+  (magit-status (eshell/pwd)))
+
 (defun git-current-branch (pwd)
   "Return current git branch as a string in current directory `PWD`."
-  (interactive)
   (when (and (eshell-search-path "git")
              (locate-dominating-file pwd ".git"))
     (let ((git-output (shell-command-to-string (concat "cd " pwd " && git branch | grep '\\*' | sed -e 's/^\\* //'"))))

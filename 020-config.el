@@ -154,10 +154,12 @@
       (lambda ()
         (concat
          (propertize ((lambda ()
-                        (eshell/pwd))) 'face `(:foreground "yellow"))
-         (or (curr-dir-git-branch-string (eshell/pwd)))
+                        (replace-regexp-in-string
+                         (concat "/home/" (getenv "USER")) "~"
+                         (eshell/pwd)))) 'face `(:foreground "yellow"))
+         (or (git-current-branch (eshell/pwd)))
+         (or (git-unpushed-commits (eshell/pwd)))
          (propertize " > " 'face 'default))))
-
 
 ;; Monky
 (setq monky-process-type 'cmdserver)

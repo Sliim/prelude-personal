@@ -62,17 +62,35 @@ This function run external shell command `python -m json.tool` on current region
   (browse-url-of-buffer (markdown-standalone markdown-output-buffer-name)))
 
 ;; Eshell utilities
-(defun curr-dir-git-branch-string (pwd)
+(defun git-current-branch (pwd)
   "Return current git branch as a string in current directory `PWD`."
   (interactive)
   (when (and (eshell-search-path "git")
              (locate-dominating-file pwd ".git"))
     (let ((git-output (shell-command-to-string (concat "cd " pwd " && git branch | grep '\\*' | sed -e 's/^\\* //'"))))
-      (propertize (concat "["
+      (propertize (concat " ["
                           (if (> (length git-output) 0)
-                              (substring git-output 0 -1)
+                              (concat (substring git-output 0 -1) (git-changes pwd))
                             "(no branch)")
-                          "]") 'face `(:foreground "green"))
-      )))
+                          "]") 'face `(:foreground "green")))))
+
+(defun git-unpushed-commits (pwd)
+  "Return number of unpushed commits in repository `PWD`."
+  (when (and (eshell-search-path "git")
+             (locate-dominating-file pwd ".git"))
+    (let ((git-output (shell-command-to-string (concat "cd " pwd " && git log --branches --not --remotes --simplify-by-decoration --decorate --oneline | wc -l"))))
+      (let ((out (substring git-output 0 -1)))
+        (when (not (string= out "0"))
+          (propertize (concat " [" out "]")
+                      'face `(:foreground "red")))))))
+
+(defun git-changes (pwd)
+  "Get modified files in repository `PWD`."
+  (when (and (eshell-search-path "git")
+             (locate-dominating-file pwd ".git"))
+    (let ((git-output (shell-command-to-string
+                       (concat "cd " pwd " && git status --short | wc -l"))))
+      (let ((out (substring git-output 0 -1)))
+        (when (not (string= out "0")) " ⚡")))))
 
 ;;; 010-functions.el ends here

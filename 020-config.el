@@ -58,6 +58,7 @@
 (grep-compute-defaults)
 (add-to-list 'grep-find-ignored-directories "logs")
 (add-to-list 'grep-find-ignored-directories "cover")
+(add-to-list 'grep-find-ignored-directories "vendor")
 (add-to-list 'grep-find-ignored-files "TAGS")
 (add-to-list 'grep-files-aliases (cons "php" "*.php *.phtml"))
 (add-to-list 'grep-files-aliases (cons "js" "*.js"))

@@ -62,6 +62,8 @@ Actually these packages are:
   - helm-ls-hg.el (https://github.com/emacs-helm/helm-mercurial-queue)
   - helm-mercurial.el (https://github.com/emacs-helm/helm-mercurial-queue)
   - redo.el (http://www.emacswiki.org/RedoMode)
+  - windata (http://www.emacswiki.org/emacs/windata.el)
+  - dirtree (https://github.com/zkim/emacs-dirtree)
 
 ** elisp/ directory
 

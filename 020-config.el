@@ -93,6 +93,10 @@
 
 (setq ecb-tip-of-the-day nil)
 
+;; Dirtree
+(require 'dirtree)
+(setq dirtree-windata '(frame left 0.2 delete))
+
 ;; Auto-complete
 (require 'auto-complete)
 (global-auto-complete-mode t)           ;enable global-mode

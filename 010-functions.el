@@ -55,6 +55,30 @@ This function run external shell command `python -m json.tool` on current region
   (interactive)
   (browse-url-of-buffer (markdown-standalone markdown-output-buffer-name)))
 
+;; Dirtree utilities
+(defun dirtree-toggle-dir (directory)
+  "Toggle dirtree on DIRECTORY."
+  (if (get-buffer dirtree-buffer)
+      (progn
+        (setq tree (apply 'windata-display-buffer dirtree-buffer dirtree-windata))
+        (select-window tree)
+        (kill-buffer-and-window))
+    (if directory
+        (dirtree directory t)
+      (dirtree "~/" t))))
+
+(defun dirtree-toggle-current-dir ()
+  "Toggle dirtree on current directory."
+  (interactive)
+  (if (buffer-file-name)
+      (dirtree-toggle-dir (file-name-directory (buffer-file-name)))
+    (dirtree-toggle-dir nil)))
+
+(defun dirtree-toggle-projectile-root ()
+  "Toggle dirtree on projectile root directory."
+  (interactive)
+  (dirtree-toggle-dir (projectile-project-root)))
+
 ;; Eshell utilities
 (defun eshell/clear ()
   "Clear eshell buffer."

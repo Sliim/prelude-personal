@@ -91,31 +91,33 @@ Actually these packages are:
 | ~C-SPC~     | ~auto-complete~          |
 
 
-|---------------+---------------------------------|
-| Key           | Command                         |
-|---------------+---------------------------------|
-| ~C-M-< f~     | ~projectile-find-file~          |
-| ~C-M-< g~     | ~magit-status~                  |
-| ~C-M-< i~     | ~iedit-mode~                    |
-| ~C-M-< m~     | ~monky-status~                  |
-| ~C-M-< t~     | ~etags-select-find-tag~         |
-| ~C-M-< w~     | ~whitespace-mode~               |
-| ~C-M-< e a~   | ~emms-add-directory-tree~       |
-| ~C-M-< e b~   | ~emms-previous~                 |
-| ~C-M-< e h~   | ~helm-emms~                     |
-| ~C-M-< e l~   | ~emms-browser~                  |
-| ~C-M-< e n~   | ~emms-next~                     |
-| ~C-M-< e p~   | ~emms-pause~                    |
-| ~C-M-< h f~   | ~helm-find-files~               |
-| ~C-M-< h g~   | ~helm-git-find-files~           |
-| ~C-M-< h h~   | ~helm-hg-find-files-in-project~ |
-| ~C-M-< h p~   | ~helm-prelude~                  |
-| ~C-M-< h t~   | ~helm-etags+-select~            |
-| ~C-M-< p i~   | ~projext-show-current-project~  |
-| ~C-M-< p o~   | ~projext-open-project~          |
-| ~C-M-< p s~   | ~projext-save-project-desktop~  |
-| ~C-M-< p t~   | ~projext-regenerate-tags~       |
-| ~C-M-< p x~   | ~projext-close-current-project~ |
-| ~C-M-< p c a~ | ~projext-clean-project~         |
-| ~C-M-< p c d~ | ~projext-clean-project-desktop~ |
-| ~C-M-< p c t~ | ~projext-clean-project-tags~    |
+|---------------+----------------------------------|
+| Key           | Command                          |
+|---------------+----------------------------------|
+| ~C-M-< d~     | ~dirtree-toggle-current-dir~     |
+| ~C-M-< f~     | ~projectile-find-file~           |
+| ~C-M-< g~     | ~magit-status~                   |
+| ~C-M-< i~     | ~iedit-mode~                     |
+| ~C-M-< m~     | ~monky-status~                   |
+| ~C-M-< t~     | ~etags-select-find-tag~          |
+| ~C-M-< w~     | ~whitespace-mode~                |
+| ~C-M-< e a~   | ~emms-add-directory-tree~        |
+| ~C-M-< e b~   | ~emms-previous~                  |
+| ~C-M-< e h~   | ~helm-emms~                      |
+| ~C-M-< e l~   | ~emms-browser~                   |
+| ~C-M-< e n~   | ~emms-next~                      |
+| ~C-M-< e p~   | ~emms-pause~                     |
+| ~C-M-< h f~   | ~helm-find-files~                |
+| ~C-M-< h g~   | ~helm-git-find-files~            |
+| ~C-M-< h h~   | ~helm-hg-find-files-in-project~  |
+| ~C-M-< h p~   | ~helm-prelude~                   |
+| ~C-M-< h t~   | ~helm-etags+-select~             |
+| ~C-M-< p d~   | ~dirtree-toggle-projectile-root~ |
+| ~C-M-< p i~   | ~projext-show-current-project~   |
+| ~C-M-< p o~   | ~projext-open-project~           |
+| ~C-M-< p s~   | ~projext-save-project-desktop~   |
+| ~C-M-< p t~   | ~projext-regenerate-tags~        |
+| ~C-M-< p x~   | ~projext-close-current-project~  |
+| ~C-M-< p c a~ | ~projext-clean-project~          |
+| ~C-M-< p c d~ | ~projext-clean-project-desktop~  |
+| ~C-M-< p c t~ | ~projext-clean-project-tags~     |

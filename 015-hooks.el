@@ -29,9 +29,12 @@
 
 ;;; Code:
 
+(defun prog-mode-personal-hook ()
+  "Function to be called when entering in `prog-mode`."
+  (add-hook 'before-save-hook 'delete-trailing-whitespace))
+
 (defun php-mode-personal-hook ()
   "Function to be called when entering into `php-mode`."
-  (interactive)
   (when (and (require 'auto-complete nil t) (require 'auto-complete-config nil t))
     (make-local-variable 'ac-sources)
     (setq ac-sources '(ac-source-words-in-same-mode-buffers
@@ -46,14 +49,13 @@
 
 (defun python-mode-personal-hook ()
   "Function to be called when entering into `python-mode`."
-  (interactive)
   (setq-default indent-tabs-mode nil)
   (setq default-tab-width 4)
   (jedi:setup))
 
 (defun markdown-mode-personal-hook ()
   "Function to be called when entering into `markdown-mode`."
-  (interactive)
+  (remove-hook 'before-save-hook 'delete-trailing-whitespace)
   (define-key markdown-mode-map (kbd "C-c C-c p") 'markdown-preview-with-hf))
 
 ;;; 015-hooks.el ends here

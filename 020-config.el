@@ -38,7 +38,8 @@
 (setq require-final-newline t)
 (setq c-basic-offset 4)
 
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+;; Prog-mode
+(add-hook 'prelude-prog-mode-hook 'prog-mode-personal-hook)
 
 ;; Xterm
 (define-key input-decode-map "\e[1;2A" [S-up])

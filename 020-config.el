@@ -91,12 +91,7 @@
   (if (fboundp (quote ecb-set-history-buffer)) (ecb-set-history-buffer) (ecb-set-default-ecb-buffer))
   (dotimes (i 1) (other-window 1) (if (equal (selected-window) ecb-compile-window) (other-window 1)))
   (dotimes (i 1) (other-window 1) (if (equal (selected-window) ecb-compile-window) (other-window 1))))
-
 (setq ecb-tip-of-the-day nil)
-
-;; Dirtree
-(require 'dirtree)
-(setq dirtree-windata '(frame left 0.2 delete))
 
 ;; Auto-complete
 (require 'auto-complete)

@@ -50,7 +50,7 @@
  '(mouse-wheel-progressive-speed nil)
  '(mouse-wheel-scroll-amount (quote (2 ((shift) . 2) ((control)))))
  '(phpcs-shell-command "/usr/bin/phpcs")
- '(phpcs-standard "Sliim")
+ '(phpcs-standard "PSR2")
  '(phpunit-shell-command "/usr/bin/phpunit")
  '(prelude-flyspell nil)
  '(prelude-guru nil)

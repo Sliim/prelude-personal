@@ -71,8 +71,12 @@
 
 ;;Small fix for selection with shift+up
 ; More infos: http://lists.gnu.org/archive/html/help-gnu-emacs/2011-05/msg00174.html
-(if (equal "xterm" (tty-type))
-    (define-key input-decode-map "\e[1;2A" [S-up]))
+(if (tty-type)
+    (progn
+      (define-key input-decode-map "\e[1;2A" [S-up])
+      (define-key input-decode-map "\e[1;2B" [S-down])
+      (define-key input-decode-map "\e[1;2C" [S-right])
+      (define-key input-decode-map "\e[1;2D" [S-left])))
 
 ;; Etags-select
 (require 'etags-select)

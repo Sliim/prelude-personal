@@ -1,7 +1,7 @@
-From 391c4201b9923054d28e30bb26ec9d18fc14307e Mon Sep 17 00:00:00 2001
+From 3233b5bb92f1e9b5907db7102fa9eff0627c40b6 Mon Sep 17 00:00:00 2001
 From: Sliim <sliim@mailoo.org>
-Date: Sun, 3 Feb 2013 19:18:43 +0100
-Subject: [PATCH] Prelude personal changes
+Date: Mon, 18 Mar 2013 21:20:10 +0100
+Subject: [PATCH] Personal changes
 
 ---
  .gitignore             |    5 +++++
@@ -25,10 +25,10 @@ index d19d89f..92412fe 100644
  recentf
  savehist
 diff --git a/core/prelude-editor.el b/core/prelude-editor.el
-index 8e54be4..b644755 100644
+index 4136e3d..79f0863 100644
 --- a/core/prelude-editor.el
 +++ b/core/prelude-editor.el
-@@ -137,7 +137,7 @@
+@@ -134,7 +134,7 @@
  
  ;; use shift + arrow keys to switch between visible buffers
  (require 'windmove)
@@ -38,7 +38,7 @@ index 8e54be4..b644755 100644
  ;; automatically save buffers associated with files on buffer switch
  ;; and on windows switch
 diff --git a/modules/prelude-c.el b/modules/prelude-c.el
-index e92fca7..1b1a25a 100644
+index ab1a78b..330e610 100644
 --- a/modules/prelude-c.el
 +++ b/modules/prelude-c.el
 @@ -35,7 +35,7 @@

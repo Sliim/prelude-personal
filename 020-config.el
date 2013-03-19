@@ -41,9 +41,6 @@
 ;; Prog-mode
 (add-hook 'prelude-prog-mode-hook 'prog-mode-personal-hook)
 
-;; Xterm
-(define-key input-decode-map "\e[1;2A" [S-up])
-
 ;; Auto mode
 (add-to-list 'auto-mode-alist '("\\.zsh\\'" . shell-script-mode))
 
@@ -199,7 +196,7 @@
 (define-key skbd-mode-map (kbd "C-?") 'ecb-toggle-ecb-windows)
 (define-key skbd-mode-map (kbd "C-/") 'undo)
 (define-key skbd-mode-map (kbd "C-§") 'redo)
-(define-key skbd-mode-map (kbd "C-SPC") 'auto-complete)
+(define-key skbd-mode-map (kbd "C-<tab>") 'auto-complete)
 
 ;; Load private config if exists
 (let ((user-config-file "~/.emacsrc"))

@@ -86,7 +86,7 @@ Actually these packages are:
 | ~C-/~       | ~undo~                   |
 | ~C-§~       | ~redo~                   |
 | ~C-?~       | ~ecb-toggle-ecb-windows~ |
-| ~C-SPC~     | ~auto-complete~          |
+| ~C-<tab>~   | ~auto-complete~          |
 
 
 |---------------+---------------------------------|

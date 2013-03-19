@@ -97,4 +97,18 @@ This function run external shell command `python -m json.tool` on current region
       (let ((out (substring git-output 0 -1)))
         (when (not (string= out "0")) " ⚡")))))
 
+(defun tmux-kbd-init-client()
+  "Remap some keys for Tmux session."
+  (interactive)
+  (define-key input-decode-map "\M-[1;2A" [S-up])
+  (define-key input-decode-map "\M-[1;2B" [S-down])
+  (define-key input-decode-map "\M-[1;2C" [S-right])
+  (define-key input-decode-map "\M-[1;2D" [S-left])
+  (define-key input-decode-map "\M-[1;5A" [C-up])
+  (define-key input-decode-map "\M-[1;5B" [C-down])
+  (define-key input-decode-map "\M-[1;5C" [C-right])
+  (define-key input-decode-map "\M-[1;5D" [C-left])
+  (define-key input-decode-map "\M-[1~" [home])
+  (define-key input-decode-map "\M-[4~" [end]))
+
 ;;; 010-functions.el ends here

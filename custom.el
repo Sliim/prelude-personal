@@ -66,7 +66,8 @@
 (custom-theme-set-faces
  'ir-black
  '(hl-line ((t (:underline nil))))
- '(cursor ((t (:background "LightSkyBlue")))))
+ '(cursor ((t (:background "LightSkyBlue"))))
+ '(vertical-border ((t (:foreground "LightSkyBlue4")))))
 
 ;;; custom.el ends here
 (custom-set-faces

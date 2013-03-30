@@ -56,7 +56,7 @@
 
 ;; Prelude config
 (setq prelude-flyspell nil
-      prelude-guru nil
+      prelude-guru t
       prelude-whitespace nil)
 
 ;; Prog-mode

@@ -33,11 +33,11 @@
 (load-theme 'ir-black t)
 
 ;;Global config
+(scroll-bar-mode -1)
 (setq-default tab-width 4)
 (setq confirm-kill-emacs 'yes-or-no-p
       require-final-newline t
       c-basic-offset 4
-      scroll-bar-mode nil
       scroll-conservatively 10000
       scroll-step 1
       delete-trailing-lines t

@@ -1,16 +1,15 @@
-From 3233b5bb92f1e9b5907db7102fa9eff0627c40b6 Mon Sep 17 00:00:00 2001
+From 756613c76f4e7d238d06fb092f1b6625f9c83350 Mon Sep 17 00:00:00 2001
 From: Sliim <sliim@mailoo.org>
-Date: Mon, 18 Mar 2013 21:20:10 +0100
-Subject: [PATCH] Personal changes
+Date: Sun, 31 Mar 2013 19:28:52 +0200
+Subject: [PATCH] Personal changes.
 
 ---
- .gitignore             |    5 +++++
- core/prelude-editor.el |    2 +-
- modules/prelude-c.el   |    2 +-
- 3 files changed, 7 insertions(+), 2 deletions(-)
+ .gitignore           |    7 ++++++-
+ modules/prelude-c.el |    2 +-
+ 2 files changed, 7 insertions(+), 2 deletions(-)
 
 diff --git a/.gitignore b/.gitignore
-index d19d89f..92412fe 100644
+index 12fa4ba..e254e68 100644
 --- a/.gitignore
 +++ b/.gitignore
 @@ -1,5 +1,10 @@
@@ -24,19 +23,13 @@ index d19d89f..92412fe 100644
  auto-save-list
  recentf
  savehist
-diff --git a/core/prelude-editor.el b/core/prelude-editor.el
-index 4136e3d..79f0863 100644
---- a/core/prelude-editor.el
-+++ b/core/prelude-editor.el
-@@ -134,7 +134,7 @@
- 
- ;; use shift + arrow keys to switch between visible buffers
- (require 'windmove)
--(windmove-default-keybindings)
-+(windmove-default-keybindings 'meta)
- 
- ;; automatically save buffers associated with files on buffer switch
- ;; and on windows switch
+@@ -16,4 +21,4 @@ places
+ .smex-items
+ savefile/
+ /prelude-modules.el
+-projectile-bookmarks.eld
+\ No newline at end of file
++projectile-bookmarks.eld
 diff --git a/modules/prelude-c.el b/modules/prelude-c.el
 index ab1a78b..330e610 100644
 --- a/modules/prelude-c.el

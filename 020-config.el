@@ -176,6 +176,19 @@
 (require 'rbenv)
 (global-rbenv-mode)
 
+;; Javascript
+;(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(add-hook 'js-mode-hook 'flymake-jslint-load)
+(require 'js-comint)
+(setq inferior-js-program-command "node")
+(setq inferior-js-mode-hook
+      (lambda ()
+        (ansi-color-for-comint-mode-on)
+        (add-to-list
+         'comint-preoutput-filter-functions
+         (lambda (output)
+           (replace-regexp-in-string "\033\\[[0-9]+[JGK]" "" output)))))
+
 ;; Emms
 (require 'emms-setup)
 (require 'emms-streams)

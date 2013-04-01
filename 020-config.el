@@ -172,7 +172,7 @@
 (require 'nose)
 
 ;; Ruby
-(setq rbenv-installation-dir "/usr/local/rbenv")
+(setq rbenv-installation-dir "~/.rbenv")
 (require 'rbenv)
 (global-rbenv-mode)
 

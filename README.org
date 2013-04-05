@@ -111,10 +111,12 @@ Actually these packages are:
 | ~C-M-< h p~   | ~helm-prelude~                  |
 | ~C-M-< h t~   | ~helm-etags+-select~            |
 | ~C-M-< p i~   | ~projext-show-current-project~  |
-| ~C-M-< p o~   | ~projext-open-project~          |
-| ~C-M-< p s~   | ~projext-save-project-desktop~  |
 | ~C-M-< p t~   | ~projext-regenerate-tags~       |
-| ~C-M-< p x~   | ~projext-close-current-project~ |
 | ~C-M-< p c a~ | ~projext-clean-project~         |
 | ~C-M-< p c d~ | ~projext-clean-project-desktop~ |
 | ~C-M-< p c t~ | ~projext-clean-project-tags~    |
+| ~C-M-< p f    | ~project-persist-find~          |
+| ~C-M-< p s    | ~project-persist-save~          |
+| ~C-M-< p k    | ~project-persist-close~         |
+| ~C-M-< p d    | ~project-persist-delete~        |
+| ~C-M-< p n    | ~project-persist-create~        |

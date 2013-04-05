@@ -69,9 +69,17 @@
 (add-to-list 'load-path "~/.emacs.d/personal/elisp")
 (add-to-list 'load-path "~/.emacs.d/personal/vendor")
 
+;; Projext
+(require 'projext)
+(projext-init)
+
 ;; Projectile
 (add-to-list 'projectile-globally-ignored-directories ".project")
 (setq projectile-globally-ignored-files '())
+
+;; Project-persist
+(setq project-persist-settings-dir (concat user-emacs-directory "var/project-persist"))
+(setq project-persist-auto-save-global nil)
 
 ;; Sr-Speedbar
 (require 'sr-speedbar)
@@ -97,11 +105,6 @@
 (add-to-list 'grep-find-ignored-files "TAGS")
 (add-to-list 'grep-files-aliases (cons "php" "*.php *.phtml"))
 (add-to-list 'grep-files-aliases (cons "js" "*.js"))
-
-;; Projext
-(require 'projext)
-(projext-set-projectile-tags-command)
-(add-hook 'kill-emacs-hook (lambda () (projext-close-current-project)))
 
 ;;Small fix for selection with shift+up
 ; More infos: http://lists.gnu.org/archive/html/help-gnu-emacs/2011-05/msg00174.html
@@ -157,8 +160,6 @@
 (require 'php-mode)
 (require 'php-extras)
 (require 'flymake-php)
-(require 'php-project)
-(require 'php-test)
 (when (file-exists-p "~/.emacs.d/php-manual")
   (setq php-manual-path "~/.emacs.d/php-manual"))
 

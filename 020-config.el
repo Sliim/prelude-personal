@@ -173,9 +173,12 @@
 (require 'nose)
 
 ;; Ruby
-(setq rbenv-installation-dir "~/.rbenv")
-(require 'rbenv)
-(global-rbenv-mode)
+(if (file-exists-p "~/.rbenv")
+    (progn
+      (setq rbenv-installation-dir "~/.rbenv")
+      (require 'rbenv)
+      (global-rbenv-mode)))
+
 
 ;; Javascript
 ;(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))

@@ -63,6 +63,7 @@
   (require 'project-persist)
   (project-persist-mode t)
   (projext-set-projectile-tags-command)
+
   (add-hook 'kill-emacs-hook 'projext-close-if-opened)
   (add-hook 'project-persist-before-load-hook 'projext-close-if-opened)
   (add-hook 'project-persist-after-load-hook 'projext-open-project-hook)
@@ -195,6 +196,7 @@
               (message "Loading project's configuration..")
               (load-file p-config-file))))
       (mkdir p-emacs-dir))
+    (remove-hook 'kill-emacs-hook 'pp/offer-save-if-open-project)
     (dired project-persist-current-project-root-dir)
     (message (concat "Project " project-persist-current-project-name " opened."))))
 

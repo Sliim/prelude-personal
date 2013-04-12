@@ -100,7 +100,7 @@
   (projext-clean-project-tags)
   (projext-set-projectile-tags-command)
   (let ((p-tags-file (concat (projext-get-projext-directory) projext-tags-file)))
-    (if (and (pp/has-open-project))
+    (if (pp/has-open-project)
         (progn
           (shell-command (format projectile-tags-command project-persist-current-project-root-dir))
           (visit-tags-table p-tags-file))
@@ -170,7 +170,6 @@
 (defun projext-open-project-hook ()
   "Hook executed when open project: Load snippets, visit tags table and read project desktop if exists."
   (let ((p-emacs-dir (projext-get-projext-directory)))
-    (dired project-persist-current-project-root-dir)
     (if (file-exists-p p-emacs-dir)
         (progn
           (setq desktop-path (list p-emacs-dir)
@@ -196,13 +195,15 @@
               (message "Loading project's configuration..")
               (load-file p-config-file))))
       (mkdir p-emacs-dir))
+    (dired project-persist-current-project-root-dir)
     (message (concat "Project " project-persist-current-project-name " opened."))))
 
 (defun projext-close-current-project-hook ()
   "Hook executed before closing current project."
-  (projext-clear-project-desktop)
-  (projext-remove-project-desktop-lock-file)
-  (message (concat "Project " project-persist-current-project-name " closed.")))
+  (when (pp/has-open-project)
+    (projext-clear-project-desktop)
+    (projext-remove-project-desktop-lock-file)
+    (message (concat "Project " project-persist-current-project-name " closed."))))
 
 (provide 'projext)
 

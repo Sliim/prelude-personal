@@ -135,7 +135,7 @@
 
 (defun projext-get-projext-directory ()
   "Return project subdirectory where are stored TAGS file, desktop etc.."
-  (concat project-persist-current-project-root-dir projext-directory))
+  (concat project-persist-current-project-root-dir "/" projext-directory))
 
 (defun projext-remove-project-desktop-lock-file ()
   "Remove desktop lock file."

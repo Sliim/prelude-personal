@@ -52,6 +52,18 @@ tar xvfz php_manual.tar.gz && rm php_manual.tar.gz
 mv php-chunked-xhtml ~/.emacs.d/php-manual
 #+END_SRC
 
+*** Helm / Mercurial
+To use helm with mercurial repository, you must install DVC :
+
+#+BEGIN_SRC shell
+$ bzr get http://bzr.xsteve.at/dvc/ ~/.emacs.d/dvc-bzr
+$ cd ~/.emacs.d/dvc-bzr; autoconf; mkdir build; cd build; ../configure; make
+# make install
+$ mv ./lisp ~/.emacs.d/dvc; cd ~/.emacs.d/; rm -r dvc-bzr
+$ sed -ri s/"../../lisp/"/""/i dvc/dvc-autoloads.el
+#+END_SRC
+
+More info on http://www.xsteve.at/prg/emacs_dvc/dvc.html and INSTALL file.
 ** vendor/ directory
 
 vendor/ directory contains some packages that are not packaged in elpa.

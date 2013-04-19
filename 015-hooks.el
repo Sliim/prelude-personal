@@ -55,7 +55,8 @@
 
 (defun markdown-mode-personal-hook ()
   "Function to be called when entering into `markdown-mode`."
-  (remove-hook 'before-save-hook 'delete-trailing-whitespace)
+  (make-local-variable 'before-save-hook)
+  (remove-hook 'before-save-hook 'delete-trailing-whitespace t)
   (define-key markdown-mode-map (kbd "C-c C-c p") 'markdown-preview-with-hf))
 
 ;;; 015-hooks.el ends here

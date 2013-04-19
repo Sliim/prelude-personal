@@ -212,9 +212,6 @@
 (add-hook 'markdown-mode-hook 'markdown-mode-personal-hook)
 (setq markdown-xhtml-header-content "<meta charset='utf-8'>")
 
-;; Ack
-(setq ack-and-a-half-executable "ack-grep")
-
 ;; Eshell
 (if (boundp 'eshell-save-history-on-exit)
     (setq eshell-save-history-on-exit t))

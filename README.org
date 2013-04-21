@@ -127,7 +127,7 @@ Actually these packages are:
 | ~C-M-< p c a~ | ~projext-clean-project~         |
 | ~C-M-< p c d~ | ~projext-clean-project-desktop~ |
 | ~C-M-< p c t~ | ~projext-clean-project-tags~    |
-| ~C-M-< p f~   | ~project-persist-find~          |
+| ~C-M-< p f~   | ~projext-find~                  |
 | ~C-M-< p s~   | ~project-persist-save~          |
 | ~C-M-< p k~   | ~project-persist-close~         |
 | ~C-M-< p d~   | ~project-persist-delete~        |

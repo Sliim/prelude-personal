@@ -43,7 +43,7 @@
   :group 'projext
   :type 'string)
 
-(defcustom projext-config-file "projext-config.el"
+(defcustom projext-config-file "config.el"
   "Specific configuration file for a project."
   :group 'projext
   :type 'string)
@@ -64,11 +64,35 @@
   (project-persist-mode t)
   (projext-set-projectile-tags-command)
 
-  (add-hook 'kill-emacs-hook 'projext-close-if-opened)
+  ;; Loading project
   (add-hook 'project-persist-before-load-hook 'projext-close-if-opened)
-  (add-hook 'project-persist-after-load-hook 'projext-open-project-hook)
-  (add-hook 'project-persist-before-close-hook 'projext-close-current-project-hook)
-  (add-hook 'project-persist-after-save-hook 'projext-save-project-desktop))
+  (add-hook 'project-persist-after-load-hook 'projext-hook-init)
+  (add-hook 'project-persist-after-load-hook 'projext-hook-load-desktop)
+  (add-hook 'project-persist-after-load-hook 'projext-hook-load-tags)
+  (add-hook 'project-persist-after-load-hook 'projext-hook-load-snippets)
+  (add-hook 'project-persist-after-load-hook 'projext-hook-load-config)
+  (add-hook 'project-persist-after-load-hook 'projext-hook-dired-project-root)
+  (add-hook 'project-persist-after-load-hook (lambda ()
+                                               (remove-hook 'kill-emacs-hook 'pp/offer-save-if-open-project)))
+
+  ;; Creating project
+  (add-hook 'project-persist-after-create-hook 'projext-hook-init)
+
+  ;; Closing project
+  (add-hook 'project-persist-before-close-hook 'projext-hook-clear-current-project-desktop)
+
+  ;; Saving project
+  (add-hook 'project-persist-after-save-hook 'projext-save-project-desktop)
+
+  ;; Killing emacs
+  (add-hook 'kill-emacs-hook 'project-persist-close))
+
+
+;; Interactive functions.
+(defun projext-find ()
+  "Find and load the given project name."
+  (interactive)
+  (pp/project-open (pp/read-project-name)))
 
 (defun projext-show-current-project ()
   "Show the current project."
@@ -77,56 +101,58 @@
       (message project-persist-current-project-name)
     (message "none")))
 
+(defun projext-clear-project-desktop ()
+  "Overload `desktop-clear` to open current project directory when clearing desktop."
+  (interactive)
+  (projext-setup-desktop-var)
+  (desktop-clear)
+  (when (pp/has-open-project)
+    (dired project-persist-current-project-root-dir)))
+
 (defun projext-save-project-desktop ()
   "Function that save current desktop in project's directory."
   (interactive)
   (if (pp/has-open-project)
       (progn
-        (let ((p-directory (projext-get-projext-directory)))
-          (when (file-exists-p p-directory)
-            (desktop-save p-directory)
+        (let ((p-dir (projext-get-project-directory)))
+          (when (file-exists-p p-dir)
+            (projext-setup-desktop-var)
+            (desktop-save p-dir)
             (message "Desktop saved."))))
     (message "No project opened..")))
-
-(defun projext-clear-project-desktop ()
-  "Overload `desktop-clear` to open current project directory when clearing desktop."
-  (interactive)
-  (desktop-clear)
-  (when (pp/has-open-project)
-    (dired project-persist-current-project-root-dir)))
 
 (defun projext-regenerate-tags ()
   "Regenerate project's tags table."
   (interactive)
   (projext-clean-project-tags)
   (projext-set-projectile-tags-command)
-  (let ((p-tags-file (concat (projext-get-projext-directory) projext-tags-file)))
+  (let ((p-tags (concat (projext-get-project-directory) projext-tags-file)))
     (if (pp/has-open-project)
         (progn
           (shell-command (format projectile-tags-command project-persist-current-project-root-dir))
-          (visit-tags-table p-tags-file))
+          (visit-tags-table p-tags))
       (projectile-regenerate-tags))))
+
+(defun projext-clean-project-desktop ()
+  "Clear desktop and remove desktop files."
+  (interactive)
+  (when (pp/has-open-project)
+    (let ((p-desk (concat (projext-get-project-directory) projext-desktop-file)))
+      (projext-clear-project-desktop)
+      (when (file-exists-p p-desk)
+        (delete-file p-desk))
+      (projext-remove-project-desktop-lock-file))))
 
 (defun projext-clean-project-tags ()
   "Clear tags table and remove tags file."
   (interactive)
   (tags-reset-tags-tables)
   (when (pp/has-open-project)
-    (let ((p-tags-file (concat (projext-get-projext-directory) projext-tags-file)))
-      (when (file-exists-p p-tags-file)
-        (delete-file p-tags-file))))
+    (let ((p-tags (concat (projext-get-project-directory) projext-tags-file)))
+      (when (file-exists-p p-tags)
+        (delete-file p-tags))))
   (when (file-exists-p (concat (projectile-project-root) "TAGS"))
     (delete-file (concat (projectile-project-root) "TAGS"))))
-
-(defun projext-clean-project-desktop ()
-  "Clear desktop and remove desktop files."
-  (interactive)
-  (when (pp/has-open-project)
-    (let ((p-desktop-file (concat (projext-get-projext-directory) projext-desktop-file)))
-      (projext-clear-project-desktop)
-      (when (file-exists-p p-desktop-file)
-        (delete-file p-desktop-file))
-      (projext-remove-project-desktop-lock-file))))
 
 (defun projext-clean-project ()
   "Remove project's TAGS and desktop files."
@@ -134,14 +160,73 @@
   (projext-clean-project-desktop)
   (projext-clean-project-tags))
 
-(defun projext-get-projext-directory ()
+
+;; project-persist hooks
+(defun projext-hook-init ()
+  "Project initialization when creating or opening project."
+  (let ((p-dir (projext-get-project-directory)))
+    (when (not (file-exists-p p-dir))
+      (mkdir p-dir))))
+
+(defun projext-hook-load-tags ()
+  "Load project's TAGS file."
+  (setq tags-completion-table nil)
+  (let ((p-tags (concat (projext-get-project-directory) projext-tags-file)))
+    (when (file-exists-p p-tags)
+      (message "Loading project's tags table..")
+      (tags-reset-tags-tables)
+      (visit-tags-table p-tags))))
+
+(defun projext-hook-load-desktop ()
+  "Load project's desktop."
+  (let ((p-desk (concat (projext-get-project-directory) projext-desktop-file)))
+    (when (file-exists-p p-desk)
+      (message "Loading project's desktop..")
+      (projext-setup-desktop-var)
+      (desktop-read))))
+
+(defun projext-hook-load-snippets ()
+  "Load project's snippets."
+  (let ((p-snip (concat (projext-get-project-directory) "snippets/")))
+    (when (file-exists-p p-snip)
+      (message "Loading project's snippets..")
+      (yas-load-directory p-snip))))
+
+(defun projext-hook-load-config ()
+  "Load project's configuration."
+  (let ((p-conf (concat (projext-get-project-directory) projext-config-file)))
+    (when (file-exists-p p-conf)
+      (message "Loading project's configuration..")
+      (load-file p-conf))))
+
+(defun projext-hook-dired-project-root ()
+  "Dired current project root directory."
+  (dired project-persist-current-project-root-dir))
+
+(defun projext-hook-clear-current-project-desktop ()
+  "Clear current project desktop."
+  (when (pp/has-open-project)
+    (message "Clearing project desktop..")
+    (projext-clear-project-desktop)
+    (projext-remove-project-desktop-lock-file)))
+
+
+;; Core functions.
+(defun projext-setup-desktop-var ()
+  "Setup desktop variable for current project."
+  (setq desktop-path (list (projext-get-project-directory))
+        desktop-dirname (projext-get-project-directory)
+        desktop-base-file-name projext-desktop-file
+        desktop-base-lock-name (concat projext-desktop-file ".lock")))
+
+(defun projext-get-project-directory ()
   "Return project subdirectory where are stored TAGS file, desktop etc.."
   (concat project-persist-current-project-root-dir "/" projext-directory))
 
 (defun projext-remove-project-desktop-lock-file ()
   "Remove desktop lock file."
   (when (pp/has-open-project)
-    (let ((p-desktop-lock (concat (projext-get-projext-directory) projext-desktop-file ".lock")))
+    (let ((p-desktop-lock (concat (projext-get-project-directory) projext-desktop-file ".lock")))
       (when (file-exists-p p-desktop-lock)
         (delete-file p-desktop-lock)))))
 
@@ -152,7 +237,7 @@
 
 (defun projext-set-projectile-tags-command ()
   "Set projectile-tags-command custom variable."
-  (setq p-base-command "ctags-exuberant -Re \
+  (setq p-base-command "ctags -Re \
     --languages=PHP,Python,Ruby,JavaScript,C,sh \
     --exclude=\"\.git\" \
     --totals=yes \
@@ -165,47 +250,8 @@
     --regex-PHP='/const ([^ ]*)/\1/d/'")
 
   (when (pp/has-open-project)
-    (setq p-base-command (concat p-base-command " -o " (projext-get-projext-directory) projext-tags-file)))
+    (setq p-base-command (concat p-base-command " -o " (projext-get-project-directory) projext-tags-file)))
   (setq projectile-tags-command (concat p-base-command " %s")))
-
-(defun projext-open-project-hook ()
-  "Hook executed when open project: Load snippets, visit tags table and read project desktop if exists."
-  (let ((p-emacs-dir (projext-get-projext-directory)))
-    (if (file-exists-p p-emacs-dir)
-        (progn
-          (setq desktop-path (list p-emacs-dir)
-                desktop-dirname p-emacs-dir
-                desktop-base-file-name projext-desktop-file
-                desktop-base-lock-name (concat projext-desktop-file ".lock")
-                tags-completion-table nil)
-          (let ((p-snippets-dir (concat p-emacs-dir "snippets/"))
-                (p-desktop-file (concat p-emacs-dir projext-desktop-file))
-                (p-config-file (concat p-emacs-dir projext-config-file))
-                (p-tags-file (concat p-emacs-dir projext-tags-file)))
-            (when (file-exists-p p-tags-file)
-              (message "Loading project's tags table..")
-              (tags-reset-tags-tables)
-              (visit-tags-table p-tags-file))
-            (when (file-exists-p p-snippets-dir)
-              (message "Loading project's snippets..")
-              (yas-load-directory p-snippets-dir))
-            (when (file-exists-p p-desktop-file)
-              (message "Loading project's desktop..")
-              (desktop-read))
-            (when (file-exists-p p-config-file)
-              (message "Loading project's configuration..")
-              (load-file p-config-file))))
-      (mkdir p-emacs-dir))
-    (remove-hook 'kill-emacs-hook 'pp/offer-save-if-open-project)
-    (dired project-persist-current-project-root-dir)
-    (message (concat "Project " project-persist-current-project-name " opened."))))
-
-(defun projext-close-current-project-hook ()
-  "Hook executed before closing current project."
-  (when (pp/has-open-project)
-    (projext-clear-project-desktop)
-    (projext-remove-project-desktop-lock-file)
-    (message (concat "Project " project-persist-current-project-name " closed."))))
 
 (provide 'projext)
 

@@ -63,7 +63,7 @@
       (define-key prefix-map (kbd "p c t") 'projext-clean-project-tags)
       (define-key prefix-map (kbd "p c d") 'projext-clean-project-desktop)
       (define-key prefix-map (kbd "p c a") 'projext-clean-project)
-      (define-key prefix-map (kbd "p f") 'project-persist-find)
+      (define-key prefix-map (kbd "p f") 'projext-find)
       (define-key prefix-map (kbd "p s") 'project-persist-save)
       (define-key prefix-map (kbd "p k") 'project-persist-close)
       (define-key prefix-map (kbd "p d") 'project-persist-delete)

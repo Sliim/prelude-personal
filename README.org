@@ -98,7 +98,6 @@ Actually these packages are:
 | ~C-/~       | ~undo~                   |
 | ~C-§~       | ~redo~                   |
 | ~C-?~       | ~ecb-toggle-ecb-windows~ |
-| ~C-.~       | ~sr-speedbar-toggle~     |
 | ~C-<tab>~   | ~auto-complete~          |
 
 

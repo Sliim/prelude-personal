@@ -81,22 +81,6 @@
 (setq project-persist-settings-dir (concat user-emacs-directory "var/project-persist"))
 (setq project-persist-auto-save-global nil)
 
-;; Sr-Speedbar
-(require 'sr-speedbar)
-(add-hook 'speedbar-mode-hook '(lambda () (hl-line-mode 1)))
-(setq speedbar-hide-button-brackets-flag t
-      speedbar-show-unknown-files t
-      speedbar-smart-directory-expand-flag t
-      speedbar-directory-button-trim-method 'trim
-      speedbar-use-images nil
-      speedbar-indentation-width 2
-      speedbar-use-imenu-flag t
-      sr-speedbar-width 35
-      sr-speedbar-width-x 35
-      sr-speedbar-auto-refresh t
-      sr-speedbar-skip-other-window-p t
-      sr-speedbar-right-side nil)
-
 ;; Grep
 (grep-compute-defaults)
 (add-to-list 'grep-find-ignored-directories "logs")
@@ -248,7 +232,6 @@
 (define-key skbd-mode-map (kbd "M-<left>") 'windmove-left)
 (define-key skbd-mode-map (kbd "M-<right>") 'windmove-right)
 (define-key skbd-mode-map (kbd "C-?") 'ecb-toggle-ecb-windows)
-(define-key skbd-mode-map (kbd "C-.") 'sr-speedbar-toggle)
 (define-key skbd-mode-map (kbd "C-/") 'undo)
 (define-key skbd-mode-map (kbd "C-§") 'redo)
 (define-key skbd-mode-map (kbd "C-<tab>") 'auto-complete)

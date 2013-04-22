@@ -75,9 +75,6 @@
   (add-hook 'project-persist-after-load-hook (lambda ()
                                                (remove-hook 'kill-emacs-hook 'pp/offer-save-if-open-project)))
 
-  ;; Creating project
-  (add-hook 'project-persist-after-create-hook 'projext-hook-init)
-
   ;; Closing project
   (add-hook 'project-persist-before-close-hook 'projext-hook-clear-current-project-desktop)
 
@@ -85,7 +82,7 @@
   (add-hook 'project-persist-after-save-hook 'projext-save-project-desktop)
 
   ;; Killing emacs
-  (add-hook 'kill-emacs-hook 'project-persist-close))
+  (add-hook 'kill-emacs-hook 'projext-close-if-opened)
 
 
 ;; Interactive functions.

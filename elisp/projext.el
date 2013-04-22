@@ -84,6 +84,9 @@
   ;; Killing emacs
   (add-hook 'kill-emacs-hook 'projext-close-if-opened)
 
+  ;; Additional settings
+  (add-to-list 'project-persist-additional-settings '(languages . (lambda () (read-from-minibuffer "Comma-separated Project languages: ")))))
+
 
 ;; Interactive functions.
 (defun projext-find ()
@@ -235,7 +238,6 @@
 (defun projext-set-projectile-tags-command ()
   "Set projectile-tags-command custom variable."
   (setq p-base-command "ctags -Re \
-    --languages=PHP,Python,Ruby,JavaScript,C,sh \
     --exclude=\"\.git\" \
     --totals=yes \
     --tag-relative=yes \
@@ -247,7 +249,10 @@
     --regex-PHP='/const ([^ ]*)/\1/d/'")
 
   (when (pp/has-open-project)
+    (when (pp/settings-get 'languages)
+      (setq p-base-command (concat p-base-command " --languages=" (pp/settings-get 'languages))))
     (setq p-base-command (concat p-base-command " -o " (projext-get-project-directory) projext-tags-file)))
+
   (setq projectile-tags-command (concat p-base-command " %s")))
 
 (provide 'projext)

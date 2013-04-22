@@ -42,6 +42,7 @@
 
 (defun php-mode-personal-hook ()
   "Function to be called when entering into `php-mode`."
+  (subword-mode)
   (flymake-php-load)
   (turn-on-eldoc-mode)
   (c-set-offset 'case-label '+)

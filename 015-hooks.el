@@ -31,17 +31,17 @@
 
 (defun prog-mode-personal-hook ()
   "Function to be called when entering in `prog-mode`."
-  (add-hook 'before-save-hook 'delete-trailing-whitespace))
-
-(defun php-mode-personal-hook ()
-  "Function to be called when entering into `php-mode`."
+  (add-hook 'before-save-hook 'delete-trailing-whitespace)
   (when (and (require 'auto-complete nil t) (require 'auto-complete-config nil t))
     (make-local-variable 'ac-sources)
     (setq ac-sources '(ac-source-words-in-same-mode-buffers
                        ac-source-dictionary))
     (when (and (require 'auto-complete-etags nil t) tags-table-list)
       (add-to-list 'ac-sources 'ac-source-etags))
-    (auto-complete-mode t))
+    (auto-complete-mode t)))
+
+(defun php-mode-personal-hook ()
+  "Function to be called when entering into `php-mode`."
   (flymake-php-load)
   (turn-on-eldoc-mode)
   (c-set-offset 'case-label '+)

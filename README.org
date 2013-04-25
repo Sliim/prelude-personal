@@ -60,7 +60,7 @@ $ bzr get http://bzr.xsteve.at/dvc/ ~/.emacs.d/dvc-bzr
 $ cd ~/.emacs.d/dvc-bzr; autoconf; mkdir build; cd build; ../configure; make
 # make install
 $ mv ./lisp ~/.emacs.d/dvc; cd ~/.emacs.d/; rm -r dvc-bzr
-$ sed -ri s/"../../lisp/"/""/i dvc/dvc-autoloads.el
+$ sed -ri s/"..\\/..\\/lisp\\/"/""/i dvc/dvc-autoloads.el
 #+END_SRC
 
 More info on http://www.xsteve.at/prg/emacs_dvc/dvc.html and INSTALL file.

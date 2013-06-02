@@ -68,6 +68,7 @@
       (define-key prefix-map (kbd "p k") 'project-persist-close)
       (define-key prefix-map (kbd "p d") 'project-persist-delete)
       (define-key prefix-map (kbd "p n") 'project-persist-create)
+      (define-key prefix-map (kbd "p h") 'helm-project-persist)
       (define-key prefix-map (kbd "e a") 'emms-add-directory-tree)
       (define-key prefix-map (kbd "e n") 'emms-next)
       (define-key prefix-map (kbd "e b") 'emms-previous)

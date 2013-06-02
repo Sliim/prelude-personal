@@ -78,6 +78,8 @@
 (setq projectile-globally-ignored-files '())
 
 ;; Project-persist
+(require 'project-persist)
+(require 'helm-project-persist)
 (setq project-persist-settings-dir (concat user-emacs-directory "var/project-persist"))
 (setq project-persist-auto-save-global nil)
 

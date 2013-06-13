@@ -119,4 +119,12 @@ This function run external shell command `python -m json.tool` on current region
   (define-key input-decode-map "\M-[1~" [home])
   (define-key input-decode-map "\M-[4~" [end]))
 
+(defun helm-buffers-right-side ()
+  "Special helm settings to list buffers in right side."
+  (interactive)
+  (let ((initial-helm-split-window-default-side helm-split-window-default-side))
+    (setq helm-split-window-default-side (quote right))
+    (helm-buffers-list)
+    (setq helm-split-window-default-side initial-helm-split-window-default-side)))
+
 ;;; 010-functions.el ends here

@@ -80,6 +80,7 @@
       (define-key prefix-map (kbd "m") 'monky-status)
       (define-key prefix-map (kbd "w") 'whitespace-mode)
       (define-key prefix-map (kbd "i") 'iedit-mode)
+      (define-key prefix-map (kbd "b") 'helm-buffers-right-side)
 
       (define-key map skbd-keymap-prefix prefix-map))
     map)

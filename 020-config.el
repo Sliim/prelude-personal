@@ -193,6 +193,8 @@
 ;; Helm
 (require 'helm-git)
 (require 'helm-etags+)
+(setq helm-buffers-favorite-modes (quote (emacs-lisp-mode org-mode php-mode ruby-mode python-mode shell-script-mode))
+      helm-follow-mode-persistent t)
 
 ;; Markdown
 (add-hook 'markdown-mode-hook 'markdown-mode-personal-hook)

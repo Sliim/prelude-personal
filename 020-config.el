@@ -226,6 +226,10 @@
   (when (require 'dvc-autoloads nil t)
     (require 'helm-ls-hg)))
 
+;; Popwin
+(require 'popwin)
+(popwin-mode 1)
+
 ;; Personal Keybindings
 (require 'skbd)
 (skbd-global-mode)

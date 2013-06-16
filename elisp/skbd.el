@@ -51,7 +51,6 @@
 (defvar skbd-mode-map
   (let ((map (make-sparse-keymap)))
     (let ((prefix-map (make-sparse-keymap)))
-      (define-key prefix-map (kbd "t") 'etags-select-find-tag)
       (define-key prefix-map (kbd "h g") 'helm-git-find-files)
       (define-key prefix-map (kbd "h t") 'helm-etags+-select)
       (define-key prefix-map (kbd "h p") 'helm-prelude)
@@ -75,12 +74,14 @@
       (define-key prefix-map (kbd "e p") 'emms-pause)
       (define-key prefix-map (kbd "e h") 'helm-emms)
       (define-key prefix-map (kbd "e l") 'emms-browser)
+      (define-key prefix-map (kbd "t") 'etags-select-find-tag)
       (define-key prefix-map (kbd "f") 'projectile-find-file)
       (define-key prefix-map (kbd "g") 'magit-status)
       (define-key prefix-map (kbd "m") 'monky-status)
       (define-key prefix-map (kbd "w") 'whitespace-mode)
       (define-key prefix-map (kbd "i") 'iedit-mode)
       (define-key prefix-map (kbd "b") 'helm-buffers-right-side)
+      (define-key prefix-map (kbd "s") 'shell-pop)
 
       (define-key map skbd-keymap-prefix prefix-map))
     map)

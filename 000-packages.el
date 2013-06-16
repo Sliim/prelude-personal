@@ -40,7 +40,7 @@
         python-mode flymake-python-pyflakes jedi epc deferred nose pep8 rbenv
         js-comint flymake-jslint js2-mode flymake-cursor
         project-persist helm-project-persist
-        geben php-extras etags-select popwin)
+        geben php-extras etags-select popwin shell-pop)
   "A list of additional packages to ensure are installed at launch.")
 
 (defun prelude-personal-packages-installed-p ()

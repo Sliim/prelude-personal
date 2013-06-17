@@ -230,6 +230,10 @@
 (require 'popwin)
 (popwin-mode 1)
 
+;; Perspective
+(require 'perspective)
+(persp-mode 1)
+
 ;; Personal Keybindings
 (require 'skbd)
 (skbd-global-mode)

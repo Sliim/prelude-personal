@@ -207,6 +207,7 @@
     (setq eshell-save-history-on-exit t))
 (setq eshell-highlight-prompt nil)
 (setq eshell-history-size 512)
+(setq eshell-directory-name (concat (getenv "HOME") "/.eshell"))
 (setq eshell-prompt-regexp "^[^#$]*[#$] ")
 (setq eshell-prompt-function
       (lambda ()

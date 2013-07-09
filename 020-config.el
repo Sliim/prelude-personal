@@ -202,6 +202,10 @@
 (add-hook 'markdown-mode-hook 'markdown-mode-personal-hook)
 (setq markdown-xhtml-header-content "<meta charset='utf-8'>")
 
+;; Git-messenger
+(require 'git-messenger)
+(setq git-messenger:show-detail t)
+
 ;; Eshell
 (if (boundp 'eshell-save-history-on-exit)
     (setq eshell-save-history-on-exit t))

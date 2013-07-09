@@ -41,7 +41,7 @@
         js-comint flymake-jslint js2-mode flymake-cursor
         project-persist helm-project-persist
         geben php-extras etags-select popwin shell-pop perspective
-        puppet-mode git-messenger
+        puppet-mode git-messenger powerline
         color-theme-sanityinc-tomorrow ir-black-theme)
   "A list of additional packages to ensure are installed at launch.")
 

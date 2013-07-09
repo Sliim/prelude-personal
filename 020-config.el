@@ -237,6 +237,11 @@
 (require 'popwin)
 (popwin-mode 1)
 
+;; Powerline
+(require 'powerline)
+(powerline-default-theme)
+(setq powerline-default-separator 'arrow-fade)
+
 ;; Perspective
 (require 'perspective)
 (persp-mode 1)

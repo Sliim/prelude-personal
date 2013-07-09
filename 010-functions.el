@@ -127,4 +127,13 @@ This function run external shell command `python -m json.tool` on current region
     (helm-buffers-list)
     (setq helm-split-window-default-side initial-helm-split-window-default-side)))
 
+(defun set-cmd-to-kbd (command keybinding)
+  "Bind COMMAND to a KEYBINDING quickly."
+  (interactive "sCommand: \nsKeybinding: ")
+  (setq cmd command)
+  (define-key skbd-mode-map (kbd keybinding) `(lambda ()
+                                         (interactive)
+                                         (let ((default-directory ,default-directory))
+                                           (compile ,cmd)))))
+
 ;;; 010-functions.el ends here

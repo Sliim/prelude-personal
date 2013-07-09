@@ -36,12 +36,13 @@
 (package-initialize)
 
 (defvar prelude-personal-packages
-  '(ecb php-mode auto-complete emms flymake-php iedit helm-git monky markdown-mode ir-black-theme
+  '(ecb php-mode auto-complete emms flymake-php iedit helm-git monky markdown-mode
         python-mode flymake-python-pyflakes jedi epc deferred nose pep8 rbenv
         js-comint flymake-jslint js2-mode flymake-cursor
         project-persist helm-project-persist
         geben php-extras etags-select popwin shell-pop perspective
-        puppet-mode)
+        puppet-mode
+        color-theme-sanityinc-tomorrow ir-black-theme)
   "A list of additional packages to ensure are installed at launch.")
 
 (defun prelude-personal-packages-installed-p ()

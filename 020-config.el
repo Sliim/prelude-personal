@@ -29,8 +29,8 @@
 
 ;;; Code:
 
-;;Load ir-black theme
-(load-theme 'ir-black t)
+;;Load theme
+(load-theme 'sanityinc-tomorrow-bright t)
 
 ;;Global config
 (scroll-bar-mode -1)

@@ -45,7 +45,7 @@
   :group 'emms
   :group 'etags-select-mode)
 
-(defvar skbd-keymap-prefix (kbd "<S-f6>")
+(defvar skbd-keymap-prefix (kbd "C-o")
   "Skbd keymap prefix.")
 
 (defvar skbd-mode-map

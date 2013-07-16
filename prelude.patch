@@ -1,14 +1,14 @@
-From 0af04cf079b975886572510bf0e289602cfb5943 Mon Sep 17 00:00:00 2001
+From 1ed69180ab786f607032b91409f7e2d224eb999a Mon Sep 17 00:00:00 2001
 From: Sliim <sliim@mailoo.org>
-Date: Tue, 9 Jul 2013 02:58:50 +0200
-Subject: [PATCH] Prelude personal changes.
+Date: Tue, 16 Jul 2013 11:16:21 +0200
+Subject: [PATCH] Personal changes
 
 ---
  .gitignore               | 6 ++++++
  core/prelude-packages.el | 3 ++-
- core/prelude-ui.el       | 2 +-
+ core/prelude-ui.el       | 4 ++--
  modules/prelude-c.el     | 2 +-
- 4 files changed, 10 insertions(+), 3 deletions(-)
+ 4 files changed, 11 insertions(+), 4 deletions(-)
 
 diff --git a/.gitignore b/.gitignore
 index 2f82543..46aac3d 100644
@@ -27,7 +27,7 @@ index 2f82543..46aac3d 100644
  recentf
  savehist
 diff --git a/core/prelude-packages.el b/core/prelude-packages.el
-index 70738fd..43ce4a5 100644
+index f357645..831d17f 100644
 --- a/core/prelude-packages.el
 +++ b/core/prelude-packages.el
 @@ -47,7 +47,8 @@
@@ -41,20 +41,22 @@ index 70738fd..43ce4a5 100644
  
  (defun prelude-packages-installed-p ()
 diff --git a/core/prelude-ui.el b/core/prelude-ui.el
-index 15906cb..e92355d 100644
+index 15906cb..64572a8 100644
 --- a/core/prelude-ui.el
 +++ b/core/prelude-ui.el
-@@ -73,7 +73,7 @@
+@@ -72,8 +72,8 @@
+                                             (abbreviate-file-name (buffer-file-name))
                                            "%b"))))
  
- ;; use zenburn as the default theme
+-;; use zenburn as the default theme
 -(load-theme 'zenburn t)
++;; use sanityinc-tomorrow-bright as the default theme
 +(load-theme 'sanityinc-tomorrow-bright t)
  
  (provide 'prelude-ui)
  ;;; prelude-ui.el ends here
 diff --git a/modules/prelude-c.el b/modules/prelude-c.el
-index ab1a78b..330e610 100644
+index 8b30618..4d2626f 100644
 --- a/modules/prelude-c.el
 +++ b/modules/prelude-c.el
 @@ -35,7 +35,7 @@
@@ -63,9 +65,9 @@ index ab1a78b..330e610 100644
  (defun prelude-c-mode-common-defaults ()
 -  (setq indent-tabs-mode t)
 +  (setq indent-tabs-mode nil)
-   (setq c-basic-offset 4))
+   (setq c-basic-offset 4)
+   (c-set-offset 'substatement-open 0))
  
- (setq prelude-c-mode-common-hook 'prelude-c-mode-common-defaults)
 -- 
 1.8.1.4
 

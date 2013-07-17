@@ -84,8 +84,7 @@ Actually these packages are:
   - skbd.el (personal keybindings preconfigured into a minor mode)
 
 ** Keybindings
-*** Skbd
-
+*** Globals
 |-------------+--------------------------|
 | Key         | Command                  |
 |-------------+--------------------------|
@@ -100,34 +99,44 @@ Actually these packages are:
 | ~C-?~       | ~ecb-toggle-ecb-windows~ |
 | ~C-<tab>~   | ~auto-complete~          |
 
+|-----------+-----------------|
+| Key chord | Command         |
+|-----------+-----------------|
+| ~ca~      | ~auto-complete~ |
+| ~cj~      | ~jedi:complete~ |
 
-|---------------+---------------------------------|
-| Key           | Command                         |
-|---------------+---------------------------------|
-| ~C-M-< f~     | ~projectile-find-file~          |
-| ~C-M-< g~     | ~magit-status~                  |
-| ~C-M-< i~     | ~iedit-mode~                    |
-| ~C-M-< m~     | ~monky-status~                  |
-| ~C-M-< t~     | ~etags-select-find-tag~         |
-| ~C-M-< w~     | ~whitespace-mode~               |
-| ~C-M-< e a~   | ~emms-add-directory-tree~       |
-| ~C-M-< e b~   | ~emms-previous~                 |
-| ~C-M-< e h~   | ~helm-emms~                     |
-| ~C-M-< e l~   | ~emms-browser~                  |
-| ~C-M-< e n~   | ~emms-next~                     |
-| ~C-M-< e p~   | ~emms-pause~                    |
-| ~C-M-< h f~   | ~helm-find-files~               |
-| ~C-M-< h g~   | ~helm-git-find-files~           |
-| ~C-M-< h h~   | ~helm-hg-find-files-in-project~ |
-| ~C-M-< h p~   | ~helm-prelude~                  |
-| ~C-M-< h t~   | ~helm-etags+-select~            |
-| ~C-M-< p i~   | ~projext-show-current-project~  |
-| ~C-M-< p t~   | ~projext-regenerate-tags~       |
-| ~C-M-< p c a~ | ~projext-clean-project~         |
-| ~C-M-< p c d~ | ~projext-clean-project-desktop~ |
-| ~C-M-< p c t~ | ~projext-clean-project-tags~    |
-| ~C-M-< p f~   | ~projext-find~                  |
-| ~C-M-< p s~   | ~project-persist-save~          |
-| ~C-M-< p k~   | ~project-persist-close~         |
-| ~C-M-< p d~   | ~project-persist-delete~        |
-| ~C-M-< p n~   | ~project-persist-create~        |
+*** Skbd
+
+|-------------+---------------------------------|
+| Key         | Command                         |
+|-------------+---------------------------------|
+| ~C-o f~     | ~projectile-find-file~          |
+| ~C-o g~     | ~magit-status~                  |
+| ~C-o i~     | ~iedit-mode~                    |
+| ~C-o m~     | ~monky-status~                  |
+| ~C-o t~     | ~etags-select-find-tag~         |
+| ~C-o w~     | ~whitespace-mode~               |
+| ~C-o b~     | ~helm-buffers-right-side~       |
+| ~C-o s~     | ~shell-pop~                     |
+| ~C-o e a~   | ~emms-add-directory-tree~       |
+| ~C-o e b~   | ~emms-previous~                 |
+| ~C-o e h~   | ~helm-emms~                     |
+| ~C-o e l~   | ~emms-browser~                  |
+| ~C-o e n~   | ~emms-next~                     |
+| ~C-o e p~   | ~emms-pause~                    |
+| ~C-o h f~   | ~helm-find-files~               |
+| ~C-o h g~   | ~helm-git-find-files~           |
+| ~C-o h h~   | ~helm-hg-find-files-in-project~ |
+| ~C-o h p~   | ~helm-prelude~                  |
+| ~C-o h t~   | ~helm-etags+-select~            |
+| ~C-o p i~   | ~projext-show-current-project~  |
+| ~C-o p t~   | ~projext-regenerate-tags~       |
+| ~C-o p c a~ | ~projext-clean-project~         |
+| ~C-o p c d~ | ~projext-clean-project-desktop~ |
+| ~C-o p c t~ | ~projext-clean-project-tags~    |
+| ~C-o p f~   | ~projext-find~                  |
+| ~C-o p s~   | ~project-persist-save~          |
+| ~C-o p k~   | ~project-persist-close~         |
+| ~C-o p d~   | ~project-persist-delete~        |
+| ~C-o p n~   | ~project-persist-create~        |
+| ~C-o p h~   | ~helm-project-persist~          |

@@ -260,6 +260,9 @@
 (define-key skbd-mode-map (kbd "C-§") 'redo)
 (define-key skbd-mode-map (kbd "C-<tab>") 'auto-complete)
 
+(key-chord-define-global "ca" 'auto-complete)
+(key-chord-define-global "cj" 'jedi:complete)
+
 ;; Load private config if exists
 (let ((user-config-file "~/.emacsrc"))
   (when (file-exists-p user-config-file)

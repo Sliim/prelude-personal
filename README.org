@@ -118,6 +118,7 @@ Actually these packages are:
 | ~C-o w~     | ~whitespace-mode~               |
 | ~C-o b~     | ~helm-buffers-right-side~       |
 | ~C-o s~     | ~shell-pop~                     |
+| ~C-o k~     | ~set-cmd-to-kbd~                |
 | ~C-o e a~   | ~emms-add-directory-tree~       |
 | ~C-o e b~   | ~emms-previous~                 |
 | ~C-o e h~   | ~helm-emms~                     |

@@ -43,7 +43,8 @@
       delete-trailing-lines t
       global-auto-revert-mode t
       mouse-wheel-progressive-speed nil
-      mouse-wheel-scroll-amount (quote (2 ((shift) . 2) ((control)))))
+      mouse-wheel-scroll-amount (quote (2 ((shift) . 2) ((control))))
+      vc-follow-symlinks t)
 
 ;; Print config
 (setq ps-font-size 8

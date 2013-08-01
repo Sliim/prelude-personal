@@ -89,6 +89,7 @@
       (define-key prefix-map (kbd "b") 'helm-buffers-right-side)
       (define-key prefix-map (kbd "s") 'shell-pop)
       (define-key prefix-map (kbd "k") 'set-cmd-to-kbd)
+      (define-key prefix-map (kbd "d") 'direx:jump-to-directory-other-window)
 
       (define-key map skbd-keymap-prefix prefix-map))
     map)

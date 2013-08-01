@@ -107,43 +107,44 @@ Actually these packages are:
 
 *** Skbd
 
-|-------------+---------------------------------|
-| Key         | Command                         |
-|-------------+---------------------------------|
-| ~C-o f~     | ~projectile-find-file~          |
-| ~C-o g~     | ~magit-status~                  |
-| ~C-o i~     | ~iedit-mode~                    |
-| ~C-o m~     | ~monky-status~                  |
-| ~C-o t~     | ~etags-select-find-tag~         |
-| ~C-o w~     | ~whitespace-mode~               |
-| ~C-o b~     | ~helm-buffers-right-side~       |
-| ~C-o s~     | ~shell-pop~                     |
-| ~C-o k~     | ~set-cmd-to-kbd~                |
-| ~C-o e a~   | ~emms-add-directory-tree~       |
-| ~C-o e b~   | ~emms-previous~                 |
-| ~C-o e h~   | ~helm-emms~                     |
-| ~C-o e l~   | ~emms-browser~                  |
-| ~C-o e n~   | ~emms-next~                     |
-| ~C-o e p~   | ~emms-pause~                    |
-| ~C-o h f~   | ~helm-find-files~               |
-| ~C-o h g~   | ~helm-git-find-files~           |
-| ~C-o h h~   | ~helm-hg-find-files-in-project~ |
-| ~C-o h p~   | ~helm-prelude~                  |
-| ~C-o h t~   | ~helm-etags+-select~            |
-| ~C-o h q~   | ~helm-quickrun~                 |
-| ~C-o p i~   | ~projext-show-current-project~  |
-| ~C-o p t~   | ~projext-regenerate-tags~       |
-| ~C-o p c a~ | ~projext-clean-project~         |
-| ~C-o p c d~ | ~projext-clean-project-desktop~ |
-| ~C-o p c t~ | ~projext-clean-project-tags~    |
-| ~C-o p f~   | ~projext-find~                  |
-| ~C-o p s~   | ~project-persist-save~          |
-| ~C-o p k~   | ~project-persist-close~         |
-| ~C-o p d~   | ~project-persist-delete~        |
-| ~C-o p n~   | ~project-persist-create~        |
-| ~C-o p h~   | ~helm-project-persist~          |
-| ~C-o q q~   | ~quickrun~                      |
-| ~C-o q e~   | ~quickrun-region~               |
-| ~C-o q a~   | ~quickrun-with-arg~             |
-| ~C-o q s~   | ~quickrun-shell~                |
-| ~C-o q r~   | ~quickrun-replace-region~       |
+|-------------+----------------------------------------|
+| Key         | Command                                |
+|-------------+----------------------------------------|
+| ~C-o f~     | ~projectile-find-file~                 |
+| ~C-o g~     | ~magit-status~                         |
+| ~C-o i~     | ~iedit-mode~                           |
+| ~C-o m~     | ~monky-status~                         |
+| ~C-o t~     | ~etags-select-find-tag~                |
+| ~C-o w~     | ~whitespace-mode~                      |
+| ~C-o b~     | ~helm-buffers-right-side~              |
+| ~C-o s~     | ~shell-pop~                            |
+| ~C-o k~     | ~set-cmd-to-kbd~                       |
+| ~C-o d~     | ~direx:jump-to-directory-other-window~ |
+| ~C-o e a~   | ~emms-add-directory-tree~              |
+| ~C-o e b~   | ~emms-previous~                        |
+| ~C-o e h~   | ~helm-emms~                            |
+| ~C-o e l~   | ~emms-browser~                         |
+| ~C-o e n~   | ~emms-next~                            |
+| ~C-o e p~   | ~emms-pause~                           |
+| ~C-o h f~   | ~helm-find-files~                      |
+| ~C-o h g~   | ~helm-git-find-files~                  |
+| ~C-o h h~   | ~helm-hg-find-files-in-project~        |
+| ~C-o h p~   | ~helm-prelude~                         |
+| ~C-o h t~   | ~helm-etags+-select~                   |
+| ~C-o h q~   | ~helm-quickrun~                        |
+| ~C-o p i~   | ~projext-show-current-project~         |
+| ~C-o p t~   | ~projext-regenerate-tags~              |
+| ~C-o p c a~ | ~projext-clean-project~                |
+| ~C-o p c d~ | ~projext-clean-project-desktop~        |
+| ~C-o p c t~ | ~projext-clean-project-tags~           |
+| ~C-o p f~   | ~projext-find~                         |
+| ~C-o p s~   | ~project-persist-save~                 |
+| ~C-o p k~   | ~project-persist-close~                |
+| ~C-o p d~   | ~project-persist-delete~               |
+| ~C-o p n~   | ~project-persist-create~               |
+| ~C-o p h~   | ~helm-project-persist~                 |
+| ~C-o q q~   | ~quickrun~                             |
+| ~C-o q e~   | ~quickrun-region~                      |
+| ~C-o q a~   | ~quickrun-with-arg~                    |
+| ~C-o q s~   | ~quickrun-shell~                       |
+| ~C-o q r~   | ~quickrun-replace-region~              |

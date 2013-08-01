@@ -239,6 +239,10 @@
 (popwin-mode 1)
 (push '("*quickrun*" :height 20) popwin:special-display-config)
 
+;; Direx
+(require 'direx)
+(push '(direx:direx-mode :position left :width 25 :dedicated t) popwin:special-display-config)
+
 ;; Powerline
 (require 'powerline)
 (powerline-default-theme)

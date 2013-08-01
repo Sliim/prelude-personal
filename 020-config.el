@@ -237,6 +237,7 @@
 ;; Popwin
 (require 'popwin)
 (popwin-mode 1)
+(push '("*quickrun*" :height 20) popwin:special-display-config)
 
 ;; Powerline
 (require 'powerline)

@@ -130,6 +130,7 @@ Actually these packages are:
 | ~C-o h h~   | ~helm-hg-find-files-in-project~ |
 | ~C-o h p~   | ~helm-prelude~                  |
 | ~C-o h t~   | ~helm-etags+-select~            |
+| ~C-o h q~   | ~helm-quickrun~                 |
 | ~C-o p i~   | ~projext-show-current-project~  |
 | ~C-o p t~   | ~projext-regenerate-tags~       |
 | ~C-o p c a~ | ~projext-clean-project~         |
@@ -141,3 +142,8 @@ Actually these packages are:
 | ~C-o p d~   | ~project-persist-delete~        |
 | ~C-o p n~   | ~project-persist-create~        |
 | ~C-o p h~   | ~helm-project-persist~          |
+| ~C-o q q~   | ~quickrun~                      |
+| ~C-o q e~   | ~quickrun-region~               |
+| ~C-o q a~   | ~quickrun-with-arg~             |
+| ~C-o q s~   | ~quickrun-shell~                |
+| ~C-o q r~   | ~quickrun-replace-region~       |

@@ -111,15 +111,17 @@ Actually these packages are:
 | Key         | Command                                |
 |-------------+----------------------------------------|
 | ~C-o f~     | ~projectile-find-file~                 |
-| ~C-o g~     | ~magit-status~                         |
+
 | ~C-o i~     | ~iedit-mode~                           |
-| ~C-o m~     | ~monky-status~                         |
 | ~C-o t~     | ~etags-select-find-tag~                |
 | ~C-o w~     | ~whitespace-mode~                      |
 | ~C-o b~     | ~helm-buffers-right-side~              |
 | ~C-o s~     | ~shell-pop~                            |
+| ~C-o g~     | ~god-local-mode~         |
 | ~C-o k~     | ~set-cmd-to-kbd~                       |
 | ~C-o d~     | ~direx:jump-to-directory-other-window~ |
+| ~C-o v g~   | ~magit-status~                         |
+| ~C-o v m~   | ~monky-status~                         |
 | ~C-o e a~   | ~emms-add-directory-tree~              |
 | ~C-o e b~   | ~emms-previous~                        |
 | ~C-o e h~   | ~helm-emms~                            |

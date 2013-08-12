@@ -42,7 +42,8 @@
         project-persist helm-project-persist
         geben php-extras etags-select popwin shell-pop perspective
         puppet-mode git-messenger powerline direx
-        color-theme-sanityinc-tomorrow ir-black-theme quickrun)
+        color-theme-sanityinc-tomorrow ir-black-theme quickrun
+        god-mode cyberpunk-theme)
   "A list of additional packages to ensure are installed at launch.")
 
 (defun prelude-personal-packages-installed-p ()

@@ -73,7 +73,6 @@ Actually these packages are:
   - helm-etags+.el (https://github.com/jixiuf/helm-etags-plus)
   - helm-ls-hg.el (https://github.com/emacs-helm/helm-mercurial-queue)
   - helm-mercurial.el (https://github.com/emacs-helm/helm-mercurial-queue)
-  - redo.el (http://www.emacswiki.org/RedoMode)
 
 ** elisp/ directory
 
@@ -85,18 +84,17 @@ Actually these packages are:
 
 ** Keybindings
 *** Globals
-|-------------+--------------------------|
-| Key         | Command                  |
-|-------------+--------------------------|
-| ~M-x~       | ~helm-M-x~               |
-| ~C-c h~     | ~helm-mini~              |
-| ~M-<up>~    | ~windmove-up~            |
-| ~M-<down>~  | ~windmove-down~          |
-| ~M-<left>~  | ~windmove-left~          |
-| ~M-<right>~ | ~windmove-right~         |
-| ~C-/~       | ~undo~                   |
-| ~C-§~       | ~redo~                   |
-| ~C-<tab>~   | ~auto-complete~          |
+|-------------+------------------|
+| Key         | Command          |
+|-------------+------------------|
+| ~M-x~       | ~helm-M-x~       |
+| ~C-c h~     | ~helm-mini~      |
+| ~M-<up>~    | ~windmove-up~    |
+| ~M-<down>~  | ~windmove-down~  |
+| ~M-<left>~  | ~windmove-left~  |
+| ~M-<right>~ | ~windmove-right~ |
+| ~C-<tab>~   | ~auto-complete~  |
+
 
 |-----------+-----------------|
 | Key chord | Command         |

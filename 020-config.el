@@ -110,9 +110,6 @@
 ;; Etags-select
 (require 'etags-select)
 
-;; Redo
-(require 'redo)
-
 ;; Auto-complete
 (require 'auto-complete)
 (global-auto-complete-mode t)           ;enable global-mode
@@ -244,8 +241,6 @@
 (define-key skbd-mode-map (kbd "M-<down>") 'windmove-down)
 (define-key skbd-mode-map (kbd "M-<left>") 'windmove-left)
 (define-key skbd-mode-map (kbd "M-<right>") 'windmove-right)
-(define-key skbd-mode-map (kbd "C-/") 'undo)
-(define-key skbd-mode-map (kbd "C-§") 'redo)
 (define-key skbd-mode-map (kbd "C-<tab>") 'auto-complete)
 
 (key-chord-define-global "ca" 'auto-complete)

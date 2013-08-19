@@ -55,6 +55,10 @@
       ps-line-number-step 1
       ps-print-color-p (quote black-white))
 
+;; Changelog config
+(setq add-log-full-name "Sliim"
+      add-log-mailing-address "sliim@mailoo.org")
+
 ;; Prelude config
 (setq prelude-flyspell nil
       prelude-guru t

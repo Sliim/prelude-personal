@@ -96,7 +96,6 @@ Actually these packages are:
 | ~M-<right>~ | ~windmove-right~         |
 | ~C-/~       | ~undo~                   |
 | ~C-§~       | ~redo~                   |
-| ~C-?~       | ~ecb-toggle-ecb-windows~ |
 | ~C-<tab>~   | ~auto-complete~          |
 
 |-----------+-----------------|
@@ -111,13 +110,12 @@ Actually these packages are:
 | Key         | Command                                |
 |-------------+----------------------------------------|
 | ~C-o f~     | ~projectile-find-file~                 |
-
 | ~C-o i~     | ~iedit-mode~                           |
 | ~C-o t~     | ~etags-select-find-tag~                |
 | ~C-o w~     | ~whitespace-mode~                      |
 | ~C-o b~     | ~helm-buffers-right-side~              |
 | ~C-o s~     | ~shell-pop~                            |
-| ~C-o g~     | ~god-local-mode~         |
+| ~C-o g~     | ~god-local-mode~                       |
 | ~C-o k~     | ~set-cmd-to-kbd~                       |
 | ~C-o d~     | ~direx:jump-to-directory-other-window~ |
 | ~C-o v g~   | ~magit-status~                         |

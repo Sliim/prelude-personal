@@ -29,13 +29,6 @@
 
 ;;; Code:
 
-(defun ecb-refresh ()
-  "Refresh ecb window (directories, methods, history)."
-  (interactive)
-  (ecb-update-directories-buffer)
-  (ecb-clear-history)
-  (ecb-rebuild-methods-buffer))
-
 (defun json-pretty-format ()
   "Print json string into an human readable format.
 This function run external shell command `python -m json.tool` on current region."

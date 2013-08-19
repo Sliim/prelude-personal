@@ -113,27 +113,6 @@
 ;; Redo
 (require 'redo)
 
-;; ECB
-(require 'ecb)
-(ecb-layout-define "sliim-layout" left-right nil
-  (if (fboundp (quote ecb-set-directories-buffer)) (ecb-set-directories-buffer) (ecb-set-default-ecb-buffer))
-  (dotimes (i 2) (other-window 1) (if (equal (selected-window) ecb-compile-window) (other-window 1)))
-  (ecb-split-ver 0.75 t)
-  (if (fboundp (quote ecb-set-methods-buffer)) (ecb-set-methods-buffer) (ecb-set-default-ecb-buffer))
-  (dotimes (i 1) (other-window 1) (if (equal (selected-window) ecb-compile-window) (other-window 1)))
-  (if (fboundp (quote ecb-set-history-buffer)) (ecb-set-history-buffer) (ecb-set-default-ecb-buffer))
-  (dotimes (i 1) (other-window 1) (if (equal (selected-window) ecb-compile-window) (other-window 1)))
-  (dotimes (i 1) (other-window 1) (if (equal (selected-window) ecb-compile-window) (other-window 1))))
-
-(setq ecb-layout-name "left13"
-      ecb-options-version "2.40"
-      ecb-tip-of-the-day nil
-      ecb-history-make-buckets (quote never)
-      ecb-kill-buffer-clears-history (quote auto)
-      ecb-primary-secondary-mouse-buttons (quote mouse-1--mouse-2)
-      ecb-show-sources-in-directories-buffer (quote ("left7" "left13" "left14" "left15" "sliim-layout"))
-      ecb-layout-window-sizes (quote (("left15" (ecb-directories-buffer-name 0.22426470588235295 . 0.6419753086419753) (ecb-methods-buffer-name 0.22426470588235295 . 0.345679012345679)) ("left14" (ecb-directories-buffer-name 0.22058823529411764 . 0.7407407407407407) (ecb-history-buffer-name 0.22058823529411764 . 0.24691358024691357)) ("left13" (ecb-directories-buffer-name 0.22794117647058823 . 0.9876543209876543)) ("left7" (ecb-directories-buffer-name 0.22794117647058823 . 0.5555555555555556) (ecb-history-buffer-name 0.22794117647058823 . 0.18518518518518517) (ecb-methods-buffer-name 0.22794117647058823 . 0.24691358024691357)) ("sliim-layout" (ecb-directories-buffer-name 0.19047619047619047 . 0.9811320754716981) (ecb-methods-buffer-name 0.21164021164021163 . 0.6226415094339622)))))
-
 ;; Auto-complete
 (require 'auto-complete)
 (global-auto-complete-mode t)           ;enable global-mode
@@ -265,7 +244,6 @@
 (define-key skbd-mode-map (kbd "M-<down>") 'windmove-down)
 (define-key skbd-mode-map (kbd "M-<left>") 'windmove-left)
 (define-key skbd-mode-map (kbd "M-<right>") 'windmove-right)
-(define-key skbd-mode-map (kbd "C-?") 'ecb-toggle-ecb-windows)
 (define-key skbd-mode-map (kbd "C-/") 'undo)
 (define-key skbd-mode-map (kbd "C-§") 'redo)
 (define-key skbd-mode-map (kbd "C-<tab>") 'auto-complete)

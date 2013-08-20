@@ -31,11 +31,16 @@ Some packages and python modules are required to operate python development:
 
 On debian-like, install packages with apt below:
 #+BEGIN_SRC shell
-apt-get install pyflakes python-virtualenv make build-essential ipython pep8 python-nose python3-nose
+apt-get install make build-essential
 
 #+END_SRC
 
-Python module installation (with virtualenv):
+Python module requirements:
+#+BEGIN_SRC shell
+pip install elpy rope flake8 ipython nose node-cover3 virtualenv
+#+END_SRC
+
+Jedi installation (with virtualenv):
 #+BEGIN_SRC shell
 cd ~/.emacs.d/elpa/<jedi_directory>
 make requirements

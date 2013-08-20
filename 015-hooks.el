@@ -51,8 +51,7 @@
 (defun python-mode-personal-hook ()
   "Function to be called when entering into `python-mode`."
   (setq-default indent-tabs-mode nil)
-  (setq default-tab-width 4)
-  (jedi:setup))
+  (setq default-tab-width 4))
 
 (defun markdown-mode-personal-hook ()
   "Function to be called when entering into `markdown-mode`."

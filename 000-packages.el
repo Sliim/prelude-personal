@@ -37,7 +37,7 @@
 
 (defvar prelude-personal-packages
   '(php-mode auto-complete emms flymake-php iedit helm-git monky markdown-mode
-        python-mode flymake-python-pyflakes jedi epc deferred nose pep8 rbenv
+        python-mode flymake-python-pyflakes elpy jedi epc deferred nose pep8 rbenv
         js-comint flymake-jslint js2-mode flymake-cursor
         project-persist helm-project-persist
         geben php-extras etags-select popwin shell-pop perspective

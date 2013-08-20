@@ -137,8 +137,11 @@
 (autoload 'jedi:setup "jedi" nil t)
 (setq jedi:setup-keys t)
 (require 'jedi)
+(require 'elpy)
+(elpy-enable)
+(elpy-use-ipython)
+(elpy-clean-modeline)
 (add-hook 'python-mode-hook 'python-mode-personal-hook)
-(require 'nose)
 
 ;; Ruby
 (if (file-exists-p "~/.rbenv")

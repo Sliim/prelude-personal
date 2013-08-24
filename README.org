@@ -37,7 +37,7 @@ apt-get install make build-essential
 
 Python module requirements:
 #+BEGIN_SRC shell
-pip install elpy rope flake8 ipython nose node-cover3 virtualenv
+pip install elpy rope flake8 ipython nose nose-cover3 virtualenv jedi rope_py3k
 #+END_SRC
 
 Jedi installation (with virtualenv):

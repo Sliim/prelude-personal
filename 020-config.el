@@ -140,7 +140,7 @@
 (elpy-enable)
 (elpy-use-ipython)
 (elpy-clean-modeline)
-(setq elpy-rpc-bkend "rope")
+(setq elpy-rpc-backend "rope")
 (add-hook 'python-mode-hook 'python-mode-personal-hook)
 
 ;; Ruby

@@ -1,5 +1,7 @@
 * Emacs Prelude Personal
 
+*This repository is no longer maintained!* See my new Emacs configuration [[https://github.com/Sliim/emacs.d][here]].
+
 This is simply my prelude personal directory.
 
 ** Installation
